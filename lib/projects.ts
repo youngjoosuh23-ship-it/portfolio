@@ -158,6 +158,30 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "medspec-translator",
+    index: "PRJ_006",
+    title: "MedSpec Translator",
+    subtitle: "의료기기 스펙 번역기",
+    description:
+      "의료기기 기술 스펙을 의사가 바로 이해할 수 있는 언어로 번역해주는 도구. PDF 업로드 또는 직접 입력으로 스펙을 채우고 로컬 LLM(Ollama)으로 번역. 현재 개발 중인 초기 프로토타입.",
+    tags: ["LLM", "Ollama", "HTML/JS", "Prototype"],
+    year: "2026",
+    type: "ai",
+    sandboxUrl: "https://medspec.vercel.app",
+    document: {
+      title: "MedSpec Translator — 프로젝트 개요",
+      overview:
+        "기기 스펙을 의사의 언어로. 의료기기 기술 문서의 전문 스펙 항목을 임상 맥락의 설명으로 변환해주는 번역기. PDF 업로드 시 자동으로 입력칸을 채우고, 로컬에서 구동되는 Ollama LLM을 호출해 번역 결과를 생성한다.",
+      kpis: [
+        { label: "개발 단계", value: "프로토타입", delta: "진행 중", positive: true },
+        { label: "입력 방식", value: "PDF / 직접입력", delta: "구현됨", positive: true },
+        { label: "번역 엔진", value: "Ollama (로컬 LLM)", delta: "연동됨", positive: true },
+      ],
+      chartData: [{ month: "Jun", value: 664 }],
+      chartLabel: "코드 라인 수 (초기 커밋 기준)",
+    },
+  },
+  {
     slug: "mobile-app",
     index: "PRJ_003",
     title: "Habit Tracker App",
