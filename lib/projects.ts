@@ -130,6 +130,34 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "matcha",
+    index: "PRJ_005",
+    title: "Matcha",
+    subtitle: "장소 기반 오픈 네트워킹 앱",
+    description:
+      "지금 같은 장소에 있는 사람들과 실시간으로 연결되는 위치 기반 소셜 앱. 지도 체크인, 채팅 요청, 이벤트 기능으로 오프라인 첫 만남의 장벽을 낮춤.",
+    tags: ["React", "Firebase", "Google Maps", "TypeScript"],
+    year: "2025",
+    type: "ai",
+    sandboxUrl: "https://gen-lang-client-0751433140.web.app",
+    document: {
+      title: "Matcha — 프로젝트 개요",
+      overview:
+        "말차(Matcha)는 지도로 활성 장소를 탐색하고, 관심 있는 상대에게 채팅을 신청하거나 공개 이벤트에 참여해 새로운 연결을 만드는 장소 기반 오픈 네트워킹 앱. LinkedIn 같은 비동기 플랫폼이 채우지 못하는 '지금, 여기'라는 공간적 맥락을 활용한다.",
+      kpis: [
+        { label: "채팅 성사율", value: "≥30%", delta: "목표", positive: true },
+        { label: "체크인→요청 전환율", value: "≥40%", delta: "목표", positive: true },
+        { label: "이벤트 참여율", value: "≥25%", delta: "목표", positive: true },
+        { label: "재방문율", value: "≥50%", delta: "목표", positive: true },
+      ],
+      chartData: [
+        { month: "May", value: 11 },
+        { month: "Jun", value: 9 },
+      ],
+      chartLabel: "월별 커밋 수",
+    },
+  },
+  {
     slug: "mobile-app",
     index: "PRJ_003",
     title: "Habit Tracker App",

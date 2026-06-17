@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# THE ARCHIVE — Portfolio
 
-## Getting Started
+Youngjoo Suh의 프로젝트 포트폴리오. Next.js App Router 기반으로 제작되었으며, AI / Leadership & Planning / Work 세 카테고리로 프로젝트를 정리해 보여줍니다.
 
-First, run the development server:
+- 배포: https://youngjoosuh.vercel.app
+- 연락처: youngjoosuh23@gmail.com · [linkedin.com/in/youngjoosuh23](https://www.linkedin.com/in/youngjoosuh23)
+
+## 구조
+
+- `app/page.tsx` — 홈, 카테고리별 프로젝트 그리드(`ProjectGrid`)
+- `app/projects/[slug]/page.tsx` — 프로젝트 상세 페이지
+- `components/ProjectGrid.tsx` — 카테고리별 폴더 스택 카드 UI
+- `components/ProjectDetail.tsx` — Sandbox(실시간 iframe 프리뷰) / Document(개요·KPI·차트) 탭
+- `lib/projects.ts` — 프로젝트 데이터 정의 (`Project` 타입, `projects` 배열)
+
+## 개발
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) 에서 확인합니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+새 프로젝트를 추가하려면 `lib/projects.ts`의 `projects` 배열에 항목을 추가하면 됩니다.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 배포
 
-## Learn More
+Vercel에 연결되어 있습니다.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npx vercel        # 프리뷰 배포
+npx vercel --prod # 프로덕션 배포
+```
