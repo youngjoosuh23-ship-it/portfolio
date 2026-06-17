@@ -82,9 +82,14 @@ function SandboxViewer({ project }: { project: Project }) {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
                 </div>
-                <div className="flex-1 mx-4 h-5 bg-[#2A2A2D] rounded text-[10px] font-mono text-[#88888E] flex items-center px-2 overflow-hidden">
+                <a
+                  href={project.sandboxUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 mx-4 h-5 bg-[#2A2A2D] rounded text-[10px] font-mono text-[#88888E] flex items-center px-2 overflow-hidden hover:text-[#F0F0F0] transition-colors"
+                >
                   {project.sandboxUrl}
-                </div>
+                </a>
               </div>
             )}
             <iframe
