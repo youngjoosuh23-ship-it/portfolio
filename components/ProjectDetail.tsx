@@ -52,9 +52,14 @@ function SandboxViewer({ project }: { project: Project }) {
             {deviceConfig[d].label.toUpperCase()}
           </button>
         ))}
-        <div className="ml-auto font-mono text-xs text-[#88888E]">
-          LIVE PREVIEW
-        </div>
+        <a
+          href={project.sandboxUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ml-auto font-mono text-xs text-[#3B82F6] hover:text-[#60A5FA] transition-colors"
+        >
+          새 탭에서 열기 ↗
+        </a>
       </div>
 
       {/* Frame */}
@@ -86,7 +91,7 @@ function SandboxViewer({ project }: { project: Project }) {
               src={project.sandboxUrl}
               className="w-full h-full border-0"
               title={project.title}
-              sandbox="allow-scripts allow-same-origin"
+              sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-top-navigation-by-user-activation"
             />
           </div>
         </motion.div>
