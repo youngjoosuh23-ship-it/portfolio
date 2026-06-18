@@ -136,8 +136,8 @@ export const projects: Project[] = [
         "대만 산업기술연구원(Industrial Technology Research Institute) 전자광전시스템연구소(電光所, EOSL)에서 2024년 10월부터 2025년 4월까지 실험인턴으로 근무. 실험실 운영 지원과 촉각 피드백 기술 개발 프로젝트에서 미세유체 시스템 관련 실험을 직접 수행하고, 열가소성 미세유체 접합 기술 문헌을 검토·비교해 레이저 용접을 최적 방법으로 제안",
       kpis: [
         { label: "근무 기간", value: "7개월", delta: "2024.10–2025.04", positive: true },
-        { label: "핵심 업무", value: "촉각 피드백,미세유체", delta: "실험수행,실험실 운영 및 지원", positive: true },
-        { label: "논문 리뷰", value: "열가소성 미세유체 접합 기술", delta: "최적 방법 제안", positive: true },
+        { label: "핵심 업무", value: "촉각피드백\n미세유체시스템", delta: "실험수행\n실험실 운영 및 지원", positive: true },
+        { label: "논문 리뷰", value: "열가소성 미세유체접합", delta: "최적방법 제안", positive: true },
       ],
       attachments: [
         {

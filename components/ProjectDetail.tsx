@@ -128,12 +128,12 @@ function DocumentViewer({ project }: { project: Project }) {
               <span className="font-mono text-[11px] text-[#88888E]">
                 {kpi.label}
               </span>
-              <span className="text-2xl font-bold text-[#F0F0F0]">
+              <span className="text-2xl font-bold text-[#F0F0F0] whitespace-pre-line">
                 {kpi.value}
               </span>
               {kpi.delta && (
                 <span
-                  className={`font-mono text-[11px] ${
+                  className={`font-mono text-[11px] whitespace-pre-line ${
                     kpi.positive ? "text-[#10B981]" : "text-[#EF4444]"
                   }`}
                 >
