@@ -120,8 +120,8 @@ export const projects: Project[] = [
   },
   {
     slug: "itri-internship",
-    title: "ITRI Research Intern",
-    subtitle: "산업기술연구원(ITRI) 인턴 — 미세유체 시스템 실험",
+    title: "ITRI Lab Intern",
+    subtitle: "산업기술연구원(ITRI) 실험 보조 인턴 — 미세유체 시스템 실험",
     description:
       "촉각 피드백 및 미세유체 시스템 실험을 직접 수행하고, 열가소성 미세유체 접합 기술을 비교 분석해 레이저 용접을 최적 방법으로 도출. 팀 의사결정을 지원하는 발표 수행.",
     tags: ["R&D", "Microfluidics", "Materials Eng.", "Internship"],
@@ -129,9 +129,9 @@ export const projects: Project[] = [
     type: "work",
     sandboxUrl: "https://www.itri.org.tw/english",
     document: {
-      title: "ITRI Research Intern — 업무 개요",
+      title: "ITRI Lab Intern — 업무 개요",
       overview:
-        "대만 산업기술연구원(Industrial Technology Research Institute)에서 2024년 10월부터 2025년 4월까지 인턴으로 근무. 실험실 일상 운영을 지원하며 촉각 피드백·미세유체 시스템 관련 실험을 직접 수행하고, 열가소성 미세유체 접합 기술 문헌을 검토·비교해 레이저 용접을 최적 방법으로 도출, 팀 의사결정을 지원하는 발표를 수행함.",
+        "대만 산업기술연구원(Industrial Technology Research Institute)에서 2024년 10월부터 2025년 4월까지 실험 보조 인턴으로 근무. 실험실 일상 운영 지원과 환경 정리, 동료 실험 보조를 맡으며 촉각 피드백·미세유체 시스템 관련 실험을 직접 수행하고, 열가소성 미세유체 접합 기술 문헌을 검토·비교해 레이저 용접을 최적 방법으로 도출, 팀 의사결정을 지원하는 발표를 수행함.",
       kpis: [
         { label: "근무 기간", value: "7개월", delta: "2024.10–2025.04", positive: true },
         { label: "핵심 실험", value: "촉각 피드백·미세유체", delta: "직접 수행", positive: true },
