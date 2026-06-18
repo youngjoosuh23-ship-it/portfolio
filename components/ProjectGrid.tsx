@@ -289,6 +289,12 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
               >
                 // empty
               </div>
+            ) : type === "work" ? (
+              <div className="flex-1 min-h-0 overflow-visible flex flex-col gap-3">
+                {group.map((project) => (
+                  <ProjectCard key={project.slug} project={project} />
+                ))}
+              </div>
             ) : group.length >= 3 ? (
               <div className="flex-1 min-h-0">
                 <DragScrollArea>

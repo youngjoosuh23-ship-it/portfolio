@@ -121,36 +121,13 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "korean-tutoring",
-    title: "Korean Tutoring",
-    subtitle: "프리랜서 한국어 과외 | 3년간 장기 수강생 관리",
-    description:
-      "수강생 니즈를 파악해 4단계 학습 프레임워크(복습→문법 입력→실전 응용→쓰기)를 설계하고, 3년간 꾸준한 과외로 TOPIK 2급에서 4급까지 성장을 도움.",
-    tags: ["Tutoring", "Korean", "Education", "Freelance"],
-    year: "2025",
-    type: "work",
-    sandboxUrl: "https://www.topik.go.kr",
-    hasLiveDemo: false,
-    document: {
-      title: "Korean Tutoring — 업무 개요",
-      overview:
-        "2022년 9월부터 2025년 12월까지 프리랜서로 한국어 과외를 진행. 수강생의 니즈를 파악해 장기적인 관계를 관리·유지하며, 복습 → 문법 입력 → 실전 응용 → 쓰기로 이어지는 4단계 학습 프레임워크를 설계하고 지속적으로 개선해 수강생의 실력을 TOPIK 2급에서 4급으로 끌어올림.",
-      kpis: [
-        { label: "활동 기간", value: "3년 3개월", delta: "2022.09–2025.12", positive: true },
-        { label: "수강생 수", value: "1~2명", delta: "동시 진행", positive: true },
-        { label: "핵심 업무", value: "1:1 과외\n학습 설계", delta: "장기 관계 관리\n4단계 프레임워크", positive: true },
-        { label: "성과", value: "TOPIK 2급 → 4급", delta: "수강생 실력 향상", positive: true },
-      ],
-    },
-  },
-  {
     slug: "itri-internship",
     title: "ITRI Lab Intern",
     subtitle: "산업기술연구원(ITRI) 전자광전시스템연구소(電光所) 실험 인턴 | 미세유체 시스템 관련 실험 수행",
     description:
       "촉각 피드백 및 미세유체 시스템 실험을 직접 수행하고, 열가소성 미세유체 접합 기술을 비교 분석해 레이저 용접을 최적 방법으로 제안.",
     tags: ["R&D", "Microfluidics", "Optoelectronics", "Internship"],
-    year: "2025",
+    year: "2024.10–2025.04",
     type: "work",
     sandboxUrl: "https://www.itri.org.tw/english",
     hasLiveDemo: false,
@@ -169,6 +146,29 @@ export const projects: Project[] = [
           url: "/resume/microfluidic-bonding-review.pdf",
           thumbnail: "/resume/microfluidic-bonding-review-thumb.png",
         },
+      ],
+    },
+  },
+  {
+    slug: "korean-tutoring",
+    title: "Korean Tutoring",
+    subtitle: "프리랜서 한국어 과외 | 3년간 장기 수강생 관리",
+    description:
+      "수강생 니즈를 파악해 4단계 학습 프레임워크(복습→문법 입력→실전 응용→쓰기)를 설계하고, 3년간 꾸준한 과외로 TOPIK 2급에서 4급까지 성장을 도움.",
+    tags: ["Tutoring", "Korean", "Education", "Freelance"],
+    year: "2022.09–2025.12",
+    type: "work",
+    sandboxUrl: "https://www.topik.go.kr",
+    hasLiveDemo: false,
+    document: {
+      title: "Korean Tutoring — 업무 개요",
+      overview:
+        "2022년 9월부터 2025년 12월까지 프리랜서로 한국어 과외를 진행. 수강생의 니즈를 파악해 장기적인 관계를 관리·유지하며, 복습 → 문법 입력 → 실전 응용 → 쓰기로 이어지는 4단계 학습 프레임워크를 설계하고 지속적으로 개선해 수강생의 실력을 TOPIK 2급에서 4급으로 끌어올림.",
+      kpis: [
+        { label: "활동 기간", value: "3년 3개월", delta: "2022.09–2025.12", positive: true },
+        { label: "수강생 수", value: "1~2명", delta: "동시 진행", positive: true },
+        { label: "핵심 업무", value: "1:1 과외\n학습 설계", delta: "장기 관계 관리\n4단계 프레임워크", positive: true },
+        { label: "성과", value: "TOPIK 2급 → 4급", delta: "수강생 실력 향상", positive: true },
       ],
     },
   },
