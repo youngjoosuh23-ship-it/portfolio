@@ -20,10 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className={`${geistMono.variable} h-full`}>
-      <body className="min-h-full flex flex-col">
+      <body className="h-full flex flex-col">
         {/* Nav */}
         <nav
-          className="sticky top-0 z-50 border-b"
+          className="shrink-0 border-b"
           style={{
             borderColor: "#003300",
             backgroundColor: "rgba(0,0,0,0.85)",
@@ -40,7 +40,7 @@ export default function RootLayout({
           </div>
         </nav>
 
-        <div className="relative z-10 flex-1 flex flex-col">
+        <div className="relative z-10 flex-1 flex flex-col min-h-0">
           {children}
         </div>
       </body>

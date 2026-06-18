@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import type { ReactNode } from "react";
 import type { Project } from "@/lib/projects";
 
 const typeColor: Record<Project["type"], string> = {
@@ -201,6 +202,56 @@ function FolderStack({ projects, color }: { projects: Project[]; color: string }
   );
 }
 
+// ── drag-to-scroll wrapper ────────────────────────────────────
+function DragScrollArea({ children }: { children: ReactNode }) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const dragState = useRef({ dragging: false, startY: 0, startScroll: 0, moved: false });
+
+  const onMouseDown = (e: React.MouseEvent) => {
+    const el = ref.current;
+    if (!el) return;
+    dragState.current = { dragging: true, startY: e.clientY, startScroll: el.scrollTop, moved: false };
+  };
+
+  useEffect(() => {
+    const onMouseMove = (e: MouseEvent) => {
+      const state = dragState.current;
+      const el = ref.current;
+      if (!state.dragging || !el) return;
+      const delta = e.clientY - state.startY;
+      if (Math.abs(delta) > 4) state.moved = true;
+      el.scrollTop = state.startScroll - delta;
+    };
+    const onMouseUp = () => {
+      dragState.current.dragging = false;
+    };
+    window.addEventListener("mousemove", onMouseMove);
+    window.addEventListener("mouseup", onMouseUp);
+    return () => {
+      window.removeEventListener("mousemove", onMouseMove);
+      window.removeEventListener("mouseup", onMouseUp);
+    };
+  }, []);
+
+  const onClickCapture = (e: React.MouseEvent) => {
+    if (dragState.current.moved) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  };
+
+  return (
+    <div
+      ref={ref}
+      onMouseDown={onMouseDown}
+      onClickCapture={onClickCapture}
+      className="h-full overflow-y-auto cursor-grab active:cursor-grabbing [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#1a3a1a] [&::-webkit-scrollbar-thumb]:rounded-full"
+    >
+      {children}
+    </div>
+  );
+}
+
 // ── grid ─────────────────────────────────────────────────────
 export default function ProjectGrid({ projects }: { projects: Project[] }) {
   const grouped = sectionOrder.reduce<Record<Project["type"], Project[]>>(
@@ -212,7 +263,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
   );
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-full">
       {sectionOrder.map((type, colIdx) => {
         const group = grouped[type];
         const color = typeColor[type];
@@ -220,13 +271,13 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
         return (
           <motion.div
             key={type}
-            className="flex flex-col gap-4"
+            className="flex flex-col gap-4 min-h-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: colIdx * 0.1, ease: "easeOut" }}
           >
             {/* section header */}
-            <div className="flex flex-col gap-1">
+            <div className="flex flex-col gap-1 shrink-0">
               <div className="flex items-center gap-2">
                 <span
                   className="font-mono text-[10px] tracking-[0.25em] px-2 py-0.5 rounded-sm"
@@ -253,7 +304,11 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                 // empty
               </div>
             ) : (
-              <FolderStack projects={group} color={color} />
+              <div className="flex-1 min-h-0">
+                <DragScrollArea>
+                  <FolderStack projects={group} color={color} />
+                </DragScrollArea>
+              </div>
             )}
           </motion.div>
         );

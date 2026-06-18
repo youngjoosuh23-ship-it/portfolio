@@ -3,9 +3,9 @@ import ProjectGrid from "@/components/ProjectGrid";
 
 export default function Home() {
   return (
-    <main className="px-6 py-8 max-w-7xl mx-auto w-full flex flex-col gap-8">
+    <main className="px-6 py-8 max-w-7xl mx-auto w-full h-full flex flex-col gap-8 min-h-0">
       {/* Header */}
-      <header className="flex flex-col gap-4">
+      <header className="flex flex-col gap-4 shrink-0">
         <div className="flex flex-col gap-3">
           <h1
             className="font-mono text-4xl md:text-5xl font-bold tracking-tight"
@@ -63,11 +63,13 @@ export default function Home() {
       </header>
 
       {/* Grid */}
-      <ProjectGrid projects={projects} />
+      <div className="flex-1 min-h-0">
+        <ProjectGrid projects={projects} />
+      </div>
 
       {/* Footer */}
       <footer
-        className="pt-6 flex items-center justify-between"
+        className="pt-6 flex items-center justify-between shrink-0"
         style={{ borderTop: "1px solid #1a3a1a" }}
       >
         <span className="font-mono text-[10px] tracking-widest" style={{ color: "#2a5a2a" }}>
