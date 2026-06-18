@@ -2,7 +2,7 @@
 
 Youngjoo Suh의 프로젝트 포트폴리오. Next.js App Router 기반으로 제작되었으며, AI / Leadership & Planning / Work 세 카테고리로 프로젝트를 정리해 보여줍니다.
 
-- 배포: https://youngjoosuh.vercel.app
+- 배포: https://youngjoosuh.com
 - 연락처: youngjoosuh23@gmail.com · [linkedin.com/in/youngjoosuh23](https://www.linkedin.com/in/youngjoosuh23)
 
 ## 구조
