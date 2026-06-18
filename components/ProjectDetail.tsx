@@ -113,7 +113,7 @@ function DocumentViewer({ project }: { project: Project }) {
       {/* Overview */}
       <div className="bg-[#222224] border border-[#333336] rounded-xl p-6">
         <div className="font-mono text-xs text-[#88888E] mb-2">OVERVIEW</div>
-        <p className="text-[#F0F0F0] leading-relaxed">{doc.overview}</p>
+        <p className="text-[#F0F0F0] leading-relaxed whitespace-pre-line">{doc.overview}</p>
       </div>
 
       {/* KPI Cards */}
