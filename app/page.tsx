@@ -60,9 +60,6 @@ export default function Home() {
             </a>
           </div>
         </div>
-
-        {/* Divider */}
-        <div className="h-px" style={{ backgroundColor: "#1a3a1a" }} />
       </header>
 
       {/* Grid */}
