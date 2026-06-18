@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { Project } from "@/lib/projects";
 
 const typeColor: Record<Project["type"], string> = {
@@ -134,6 +134,16 @@ const OPEN_GAP = 12;      // gap between cards when open
 
 function FolderStack({ projects, color }: { projects: Project[]; color: string }) {
   const [open, setOpen] = useState(false);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [heights, setHeights] = useState<number[]>([]);
+
+  useEffect(() => {
+    const measure = () =>
+      setHeights(cardRefs.current.map((el) => el?.offsetHeight ?? EST_H));
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [projects]);
 
   if (projects.length === 1) {
     return <ProjectCard project={projects[0]} />;
@@ -161,25 +171,31 @@ function FolderStack({ projects, color }: { projects: Project[]; color: string }
 
       {/* stack */}
       <div style={{ position: "relative" }}>
-        {projects.map((project, i) => (
-          <motion.div
-            key={project.slug}
-            animate={
-              open
-                ? { marginTop: i > 0 ? OPEN_GAP : 0, scale: 1, opacity: 1, zIndex: i }
-                : {
-                    marginTop: i > 0 ? -(EST_H - PEEK) : 0,
-                    scale: 1 - i * 0.03,
-                    opacity: i === 0 ? 1 : 0.6,
-                    zIndex: projects.length - i,
-                  }
-            }
-            transition={spring}
-            style={{ position: "relative", zIndex: projects.length - i }}
-          >
-            <ProjectCard project={project} />
-          </motion.div>
-        ))}
+        {projects.map((project, i) => {
+          const prevHeight = heights[i - 1] ?? EST_H;
+          return (
+            <motion.div
+              key={project.slug}
+              ref={(el) => {
+                cardRefs.current[i] = el;
+              }}
+              animate={
+                open
+                  ? { marginTop: i > 0 ? OPEN_GAP : 0, scale: 1, opacity: 1, zIndex: i }
+                  : {
+                      marginTop: i > 0 ? -(prevHeight - PEEK) : 0,
+                      scale: 1 - i * 0.03,
+                      opacity: i === 0 ? 1 : 0.6,
+                      zIndex: projects.length - i,
+                    }
+              }
+              transition={spring}
+              style={{ position: "relative", zIndex: projects.length - i }}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );
