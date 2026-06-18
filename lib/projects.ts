@@ -66,70 +66,6 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "brand-campaign",
-    index: "PRJ_002",
-    title: "Brand Campaign",
-    subtitle: "디지털 통합 마케팅 캠페인",
-    description:
-      "신제품 론칭을 위한 통합 디지털 마케팅 전략 수립 및 실행. SNS, 검색 광고, 콘텐츠 마케팅 병행.",
-    tags: ["Strategy", "SNS", "SEO", "CRM"],
-    year: "2024",
-    type: "leadership",
-    sandboxUrl: "https://example.com",
-    document: {
-      title: "Brand Campaign — 캠페인 성과 분석",
-      overview:
-        "신규 브랜드 인지도 구축 캠페인. 6개월 집행 기간 동안 SNS 및 퍼포먼스 광고 복합 운영.",
-      kpis: [
-        { label: "노출수", value: "2.4M", delta: "+340%", positive: true },
-        { label: "클릭률 (CTR)", value: "5.2%", delta: "+2.1%p", positive: true },
-        { label: "CPA", value: "₩3,200", delta: "-28%", positive: true },
-        { label: "ROAS", value: "680%", delta: "+180%p", positive: true },
-      ],
-      chartData: [
-        { month: "Jan", value: 120, secondary: 38 },
-        { month: "Feb", value: 340, secondary: 95 },
-        { month: "Mar", value: 580, secondary: 160 },
-        { month: "Apr", value: 920, secondary: 240 },
-        { month: "May", value: 1600, secondary: 390 },
-        { month: "Jun", value: 2400, secondary: 580 },
-      ],
-      chartLabel: "노출 (천)",
-    },
-  },
-  {
-    slug: "ai-content-pipeline",
-    index: "PRJ_004",
-    title: "AI Content Pipeline",
-    subtitle: "LLM 기반 콘텐츠 자동화 시스템",
-    description:
-      "LLM을 활용한 콘텐츠 기획·초안 생성 자동화 파이프라인. 에디터 리뷰 시간 60% 단축.",
-    tags: ["LLM", "Python", "Prompt Eng.", "Automation"],
-    year: "2025",
-    type: "ai",
-    sandboxUrl: "https://example.com",
-    document: {
-      title: "AI Content Pipeline — 성과 리포트",
-      overview:
-        "뉴스레터·SNS 콘텐츠 생산 효율화를 위한 LLM 파이프라인. 기획 → 초안 → 교정까지 자동화.",
-      kpis: [
-        { label: "생산 시간", value: "−60%", delta: "절감", positive: true },
-        { label: "월간 발행량", value: "320건", delta: "+210%", positive: true },
-        { label: "클릭률", value: "7.4%", delta: "+2.8%p", positive: true },
-        { label: "비용 절감", value: "₩4.2M", delta: "/월", positive: true },
-      ],
-      chartData: [
-        { month: "Jan", value: 40, secondary: 12 },
-        { month: "Feb", value: 80, secondary: 28 },
-        { month: "Mar", value: 140, secondary: 55 },
-        { month: "Apr", value: 210, secondary: 90 },
-        { month: "May", value: 270, secondary: 130 },
-        { month: "Jun", value: 320, secondary: 180 },
-      ],
-      chartLabel: "월간 발행 건수",
-    },
-  },
-  {
     slug: "matcha",
     index: "PRJ_005",
     title: "Matcha",
@@ -179,38 +115,6 @@ export const projects: Project[] = [
       ],
       chartData: [{ month: "Jun", value: 664 }],
       chartLabel: "코드 라인 수 (초기 커밋 기준)",
-    },
-  },
-  {
-    slug: "mobile-app",
-    index: "PRJ_003",
-    title: "Habit Tracker App",
-    subtitle: "습관 형성 모바일 애플리케이션",
-    description:
-      "일상 루틴 관리를 위한 크로스플랫폼 모바일 앱. React Native + Expo로 개발, App Store 출시.",
-    tags: ["React Native", "Expo", "Supabase", "iOS/Android"],
-    year: "2025",
-    type: "work",
-    sandboxUrl: "https://example.com",
-    document: {
-      title: "Habit Tracker — 출시 성과 리포트",
-      overview:
-        "개인 생산성 향상을 위한 습관 추적 앱. 베타 테스트 1,200명 거쳐 App Store 출시 후 4개월 성과.",
-      kpis: [
-        { label: "다운로드", value: "8,200", delta: "+62%", positive: true },
-        { label: "D7 리텐션", value: "41%", delta: "+9%p", positive: true },
-        { label: "평균 평점", value: "4.6 ★", delta: "+0.3", positive: true },
-        { label: "MAU", value: "3,800", delta: "+55%", positive: true },
-      ],
-      chartData: [
-        { month: "Jan", value: 800, secondary: 310 },
-        { month: "Feb", value: 1400, secondary: 560 },
-        { month: "Mar", value: 2200, secondary: 890 },
-        { month: "Apr", value: 3600, secondary: 1400 },
-        { month: "May", value: 5800, secondary: 2200 },
-        { month: "Jun", value: 8200, secondary: 3800 },
-      ],
-      chartLabel: "누적 다운로드",
     },
   },
 ];
