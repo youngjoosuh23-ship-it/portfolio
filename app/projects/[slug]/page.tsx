@@ -31,10 +31,14 @@ export default async function ProjectPage({
       {/* Project header */}
       <header className="mb-10">
         <div className="flex items-center gap-3 mb-3">
-          <span className="font-mono text-[11px] tracking-wider" style={{ color: "#005500" }}>
-            {project.index}
-          </span>
-          <span className="font-mono text-[11px]" style={{ color: "#003b00" }}>/</span>
+          {project.index && (
+            <>
+              <span className="font-mono text-[11px] tracking-wider" style={{ color: "#005500" }}>
+                {project.index}
+              </span>
+              <span className="font-mono text-[11px]" style={{ color: "#003b00" }}>/</span>
+            </>
+          )}
           <span className="font-mono text-[11px]" style={{ color: "#005500" }}>{project.year}</span>
         </div>
 

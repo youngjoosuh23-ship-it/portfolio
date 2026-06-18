@@ -78,7 +78,7 @@ function ProjectCard({ project }: { project: Project }) {
           <div className="p-4 flex flex-col gap-3">
             <div className="flex items-center justify-between">
               <span className="font-mono text-[10px] tracking-widest" style={{ color: "#3a7a3a" }}>
-                {project.index}
+                {project.index ?? ""}
               </span>
               <span className="font-mono text-[10px]" style={{ color: "#3a7a3a" }}>
                 {project.year}

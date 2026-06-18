@@ -13,7 +13,7 @@ export type ChartPoint = {
 
 export type Project = {
   slug: string;
-  index: string;
+  index?: string;
   title: string;
   subtitle: string;
   description: string;
@@ -67,7 +67,7 @@ export const projects: Project[] = [
   },
   {
     slug: "matcha",
-    index: "PRJ_005",
+    index: "PRJ_002",
     title: "Matcha",
     subtitle: "장소 기반 오픈 네트워킹 앱",
     description:
@@ -95,7 +95,7 @@ export const projects: Project[] = [
   },
   {
     slug: "medspec-translator",
-    index: "PRJ_006",
+    index: "PRJ_003",
     title: "MedSpec Translator",
     subtitle: "의료기기 스펙 번역기",
     description:
@@ -119,7 +119,6 @@ export const projects: Project[] = [
   },
   {
     slug: "itri-internship",
-    index: "PRJ_007",
     title: "ITRI Research Intern",
     subtitle: "산업기술연구원(ITRI) 인턴 — 미세유체 시스템 실험",
     description:
