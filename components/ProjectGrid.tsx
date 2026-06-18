@@ -303,11 +303,15 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
               >
                 // empty
               </div>
-            ) : (
+            ) : group.length >= 3 ? (
               <div className="flex-1 min-h-0">
                 <DragScrollArea>
                   <FolderStack projects={group} color={color} />
                 </DragScrollArea>
+              </div>
+            ) : (
+              <div className="flex-1 min-h-0 overflow-visible">
+                <FolderStack projects={group} color={color} />
               </div>
             )}
           </motion.div>
