@@ -125,7 +125,7 @@ export const projects: Project[] = [
     subtitle: "산업기술연구원(ITRI) 전자광전시스템연구소(電光所) 실험 보조 인턴 — 미세유체 시스템 실험",
     description:
       "촉각 피드백 및 미세유체 시스템 실험을 직접 수행하고, 열가소성 미세유체 접합 기술을 비교 분석해 레이저 용접을 최적 방법으로 도출. 팀 의사결정을 지원하는 발표 수행.",
-    tags: ["R&D", "Microfluidics", "Materials Eng.", "Internship"],
+    tags: ["R&D", "Microfluidics", "Optoelectronics", "Internship"],
     year: "2025",
     type: "work",
     sandboxUrl: "https://www.itri.org.tw/english",
