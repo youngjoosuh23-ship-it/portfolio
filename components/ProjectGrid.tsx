@@ -165,9 +165,6 @@ function FolderStack({ projects, color }: { projects: Project[]; color: string }
         <span className="font-mono text-[10px]" style={{ color: "#3a7a3a" }}>
           📁
         </span>
-        <span className="font-mono text-[10px] tracking-widest" style={{ color: "#3a7a3a" }}>
-          {projects.length} files
-        </span>
       </motion.div>
 
       {/* stack */}
