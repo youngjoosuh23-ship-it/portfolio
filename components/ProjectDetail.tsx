@@ -215,6 +215,26 @@ function DocumentViewer({ project }: { project: Project }) {
           </AreaChart>
         </ResponsiveContainer>
       </div>
+
+      {/* Attachments */}
+      {doc.attachments && doc.attachments.length > 0 && (
+        <div className="bg-[#222224] border border-[#333336] rounded-xl p-6">
+          <div className="font-mono text-xs text-[#88888E] mb-4">ATTACHMENTS</div>
+          <div className="flex flex-col gap-2">
+            {doc.attachments.map((file) => (
+              <a
+                key={file.url}
+                href={file.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-sm text-[#3B82F6] hover:text-[#60A5FA] transition-colors"
+              >
+                {file.label} ↓
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

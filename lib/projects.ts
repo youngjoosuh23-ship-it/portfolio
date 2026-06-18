@@ -28,6 +28,7 @@ export type Project = {
     kpis: KPI[];
     chartData: ChartPoint[];
     chartLabel: string;
+    attachments?: { label: string; url: string }[];
   };
 };
 
@@ -123,7 +124,7 @@ export const projects: Project[] = [
     subtitle: "산업기술연구원(ITRI) 인턴 — 미세유체 시스템 실험",
     description:
       "촉각 피드백 및 미세유체 시스템 실험을 직접 수행하고, 열가소성 미세유체 접합 기술을 비교 분석해 레이저 용접을 최적 방법으로 도출. 팀 의사결정을 지원하는 발표 수행.",
-    tags: ["R&D", "Microfluidics", "Biotech", "Internship"],
+    tags: ["R&D", "Microfluidics", "Materials Eng.", "Internship"],
     year: "2025",
     type: "work",
     sandboxUrl: "https://www.itri.org.tw/english",
@@ -142,6 +143,9 @@ export const projects: Project[] = [
         { month: "Feb", value: 3 },
       ],
       chartLabel: "수행한 핵심 업무 누적 건수",
+      attachments: [
+        { label: "Microfluidic Bonding Review (PDF)", url: "/resume/microfluidic-bonding-review.pdf" },
+      ],
     },
   },
 ];
