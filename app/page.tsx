@@ -34,23 +34,35 @@ export default function Home() {
               youngjoosuh23@gmail.com
             </a>
           </div>
-        </div>
 
-        {/* Divider / Resume section */}
-        <div className="flex items-center gap-4">
-          <div className="h-px flex-1" style={{ backgroundColor: "#1a3a1a" }} />
-          <div className="flex items-center gap-3 font-mono text-[10px] tracking-widest" style={{ color: "#2a5a2a" }}>
-            <span>RESUME</span>
-            <a href="/resume/youngjoo-suh-resume-en.pdf" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#e8ffe8]">
+          {/* Resume */}
+          <div className="flex items-center gap-2 mt-1">
+            <span className="font-mono text-[10px] tracking-widest" style={{ color: "#3a7a3a" }}>
+              RESUME
+            </span>
+            <a
+              href="/resume/youngjoo-suh-resume-en.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs px-3 py-1.5 rounded-md border transition-colors hover:bg-[#00ff4114]"
+              style={{ borderColor: "#00ff4155", color: "#00ff41" }}
+            >
               EN ↓
             </a>
-            <span>·</span>
-            <a href="/resume/youngjoo-suh-resume-kr.pdf" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#e8ffe8]">
+            <a
+              href="/resume/youngjoo-suh-resume-kr.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs px-3 py-1.5 rounded-md border transition-colors hover:bg-[#00ff4114]"
+              style={{ borderColor: "#00ff4155", color: "#00ff41" }}
+            >
               KR ↓
             </a>
           </div>
-          <div className="h-px flex-1" style={{ backgroundColor: "#1a3a1a" }} />
         </div>
+
+        {/* Divider */}
+        <div className="h-px" style={{ backgroundColor: "#1a3a1a" }} />
       </header>
 
       {/* Grid */}
