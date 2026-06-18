@@ -58,7 +58,7 @@ function ProjectCard({ project }: { project: Project }) {
         >
           {/* image preview */}
           {project.image && (
-            <div className="relative w-full overflow-hidden" style={{ height: 64 }}>
+            <div className="relative w-full overflow-hidden" style={{ height: 130 }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={project.image}
@@ -76,29 +76,29 @@ function ProjectCard({ project }: { project: Project }) {
             </div>
           )}
 
-          <div className="p-2.5 flex flex-col gap-1.5">
+          <div className="p-4 flex flex-col gap-3">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[9px] tracking-widest" style={{ color: "#3a7a3a" }}>
+              <span className="font-mono text-[10px] tracking-widest" style={{ color: "#3a7a3a" }}>
                 {project.index ?? ""}
               </span>
-              <span className="font-mono text-[9px]" style={{ color: "#3a7a3a" }}>
+              <span className="font-mono text-[10px]" style={{ color: "#3a7a3a" }}>
                 {project.year}
               </span>
             </div>
 
-            <h3 className="font-mono text-xs font-bold leading-snug" style={{ color: "#ccffcc" }}>
+            <h3 className="font-mono text-sm font-bold leading-snug" style={{ color: "#ccffcc" }}>
               {project.title}
             </h3>
 
-            <p className="font-mono text-[10px] leading-snug line-clamp-2" style={{ color: "#3a7a3a" }}>
+            <p className="font-mono text-[11px] leading-relaxed" style={{ color: "#3a7a3a" }}>
               {project.description}
             </p>
 
-            <div className="flex flex-wrap gap-1">
-              {project.tags.slice(0, 3).map((tag) => (
+            <div className="flex flex-wrap gap-1.5">
+              {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="font-mono text-[9px] px-1 py-0.5 rounded-md"
+                  className="font-mono text-[10px] px-1.5 py-0.5 rounded-md"
                   style={{
                     color: "#3a7a3a",
                     border: "1px solid #002800",
@@ -108,6 +108,10 @@ function ProjectCard({ project }: { project: Project }) {
                   {tag}
                 </span>
               ))}
+            </div>
+
+            <div className="flex justify-end">
+              <span className="font-mono text-xs" style={{ color }}>→</span>
             </div>
           </div>
 
@@ -126,7 +130,7 @@ function ProjectCard({ project }: { project: Project }) {
 
 // ── folder stack (multiple projects) ─────────────────────────
 const PEEK = 10;          // px peeking below top card when closed
-const EST_H = 130;        // estimated card height for closed-state overlap
+const EST_H = 180;        // estimated card height for closed-state overlap
 const OPEN_GAP = 12;      // gap between cards when open
 
 function FolderStack({ projects, color }: { projects: Project[]; color: string }) {
@@ -152,17 +156,6 @@ function FolderStack({ projects, color }: { projects: Project[]; color: string }
       onMouseLeave={() => setOpen(false)}
     >
       {/* folder label */}
-      <motion.div
-        className="flex items-center gap-1.5 mb-2 pl-1"
-        animate={{ opacity: open ? 0 : 1 }}
-        transition={{ duration: 0.15 }}
-        style={{ pointerEvents: "none" }}
-      >
-        <span className="font-mono text-[10px]" style={{ color: "#3a7a3a" }}>
-          📁
-        </span>
-      </motion.div>
-
       {/* stack */}
       <div style={{ position: "relative" }}>
         {projects.map((project, i) => {
