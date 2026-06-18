@@ -258,6 +258,10 @@ export default function ProjectDetail({ project }: { project: Project }) {
     project.hasLiveDemo === false ? "document" : "sandbox"
   );
 
+  if (project.hasLiveDemo === false) {
+    return <DocumentViewer project={project} />;
+  }
+
   return (
     <div className="flex flex-col gap-8">
       {/* Tab switcher */}
