@@ -22,12 +22,13 @@ export type Project = {
   type: "ai" | "leadership" | "work";
   image?: string;
   sandboxUrl: string;
+  hasLiveDemo?: boolean;
   document: {
     title: string;
     overview: string;
     kpis: KPI[];
-    chartData: ChartPoint[];
-    chartLabel: string;
+    chartData?: ChartPoint[];
+    chartLabel?: string;
     attachments?: { label: string; url: string }[];
   };
 };
@@ -128,6 +129,7 @@ export const projects: Project[] = [
     year: "2025",
     type: "work",
     sandboxUrl: "https://www.itri.org.tw/english",
+    hasLiveDemo: false,
     document: {
       title: "ITRI Lab Intern — 업무 개요",
       overview:
@@ -137,12 +139,6 @@ export const projects: Project[] = [
         { label: "핵심 실험", value: "촉각 피드백·미세유체", delta: "직접 수행", positive: true },
         { label: "기술 비교", value: "레이저 용접", delta: "최적 방법 도출", positive: true },
       ],
-      chartData: [
-        { month: "Oct", value: 1 },
-        { month: "Dec", value: 2 },
-        { month: "Feb", value: 3 },
-      ],
-      chartLabel: "수행한 핵심 업무 누적 건수",
       attachments: [
         { label: "Microfluidic Bonding Review (PDF)", url: "/resume/microfluidic-bonding-review.pdf" },
       ],

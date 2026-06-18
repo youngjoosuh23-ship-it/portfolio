@@ -146,75 +146,77 @@ function DocumentViewer({ project }: { project: Project }) {
       </div>
 
       {/* Chart */}
-      <div className="bg-[#222224] border border-[#333336] rounded-xl p-6">
-        <div className="font-mono text-xs text-[#88888E] mb-6">
-          {doc.chartLabel} TREND
-        </div>
-        <ResponsiveContainer width="100%" height={220}>
-          <AreaChart
-            data={doc.chartData}
-            margin={{ top: 4, right: 4, left: -20, bottom: 0 }}
-          >
-            <defs>
-              <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.3} />
-                <stop offset="95%" stopColor="#3B82F6" stopOpacity={0} />
-              </linearGradient>
-              <linearGradient
-                id="areaGradient2"
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="1"
-              >
-                <stop offset="5%" stopColor="#F59E0B" stopOpacity={0.2} />
-                <stop offset="95%" stopColor="#F59E0B" stopOpacity={0} />
-              </linearGradient>
-            </defs>
-            <CartesianGrid strokeDasharray="3 3" stroke="#333336" />
-            <XAxis
-              dataKey="month"
-              tick={{ fill: "#88888E", fontSize: 11, fontFamily: "monospace" }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <YAxis
-              tick={{ fill: "#88888E", fontSize: 11, fontFamily: "monospace" }}
-              axisLine={false}
-              tickLine={false}
-            />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: "#2A2A2D",
-                border: "1px solid #333336",
-                borderRadius: "8px",
-                color: "#F0F0F0",
-                fontSize: "12px",
-                fontFamily: "monospace",
-              }}
-              cursor={{ stroke: "#3B82F6", strokeWidth: 1 }}
-            />
-            <Area
-              type="monotone"
-              dataKey="value"
-              stroke="#3B82F6"
-              strokeWidth={2}
-              fill="url(#areaGradient)"
-              dot={false}
-            />
-            {doc.chartData[0].secondary !== undefined && (
+      {doc.chartData && doc.chartData.length > 0 && (
+        <div className="bg-[#222224] border border-[#333336] rounded-xl p-6">
+          <div className="font-mono text-xs text-[#88888E] mb-6">
+            {doc.chartLabel} TREND
+          </div>
+          <ResponsiveContainer width="100%" height={220}>
+            <AreaChart
+              data={doc.chartData}
+              margin={{ top: 4, right: 4, left: -20, bottom: 0 }}
+            >
+              <defs>
+                <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="#3B82F6" stopOpacity={0} />
+                </linearGradient>
+                <linearGradient
+                  id="areaGradient2"
+                  x1="0"
+                  y1="0"
+                  x2="0"
+                  y2="1"
+                >
+                  <stop offset="5%" stopColor="#F59E0B" stopOpacity={0.2} />
+                  <stop offset="95%" stopColor="#F59E0B" stopOpacity={0} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="#333336" />
+              <XAxis
+                dataKey="month"
+                tick={{ fill: "#88888E", fontSize: 11, fontFamily: "monospace" }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <YAxis
+                tick={{ fill: "#88888E", fontSize: 11, fontFamily: "monospace" }}
+                axisLine={false}
+                tickLine={false}
+              />
+              <Tooltip
+                contentStyle={{
+                  backgroundColor: "#2A2A2D",
+                  border: "1px solid #333336",
+                  borderRadius: "8px",
+                  color: "#F0F0F0",
+                  fontSize: "12px",
+                  fontFamily: "monospace",
+                }}
+                cursor={{ stroke: "#3B82F6", strokeWidth: 1 }}
+              />
               <Area
                 type="monotone"
-                dataKey="secondary"
-                stroke="#F59E0B"
+                dataKey="value"
+                stroke="#3B82F6"
                 strokeWidth={2}
-                fill="url(#areaGradient2)"
+                fill="url(#areaGradient)"
                 dot={false}
               />
-            )}
-          </AreaChart>
-        </ResponsiveContainer>
-      </div>
+              {doc.chartData[0].secondary !== undefined && (
+                <Area
+                  type="monotone"
+                  dataKey="secondary"
+                  stroke="#F59E0B"
+                  strokeWidth={2}
+                  fill="url(#areaGradient2)"
+                  dot={false}
+                />
+              )}
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+      )}
 
       {/* Attachments */}
       {doc.attachments && doc.attachments.length > 0 && (
@@ -242,7 +244,9 @@ function DocumentViewer({ project }: { project: Project }) {
 type Tab = "sandbox" | "document";
 
 export default function ProjectDetail({ project }: { project: Project }) {
-  const [activeTab, setActiveTab] = useState<Tab>("sandbox");
+  const [activeTab, setActiveTab] = useState<Tab>(
+    project.hasLiveDemo === false ? "document" : "sandbox"
+  );
 
   return (
     <div className="flex flex-col gap-8">
