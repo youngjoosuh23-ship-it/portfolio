@@ -123,6 +123,30 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "wearable-diagnostics-asia-market",
+    title: "Wearable Diagnostics — Asia Market Analysis",
+    subtitle: "촉각 피드백 기반 웨어러블 진단 센서 — 아시아 시장 분석",
+    description:
+      "ITRI에서 다룬 촉각 피드백·미세유체 기술이 웨어러블 진단 디바이스로 상업화될 때의 아시아(한국·대만·일본·중국) 시장 기회를 분석하는 개인 프로젝트. 현재 조사 진행 중.",
+    tags: ["Market Research", "Medical Devices", "Wearables", "Asia"],
+    year: "2026",
+    type: "leadership",
+    sandboxUrl: "",
+    hasLiveDemo: false,
+    document: {
+      title: "Wearable Diagnostics — Asia Market Analysis — 프로젝트 개요",
+      overview:
+        "ITRI 인턴 경험에서 다룬 촉각 피드백 및 미세유체 접합 기술이 실제 웨어러블 진단 디바이스(피부 부착형 진단 패치, 압력/촉각 기반 바이오센서 등)로 상업화될 때 아시아 시장에서 어떤 기회와 장벽이 있는지 분석하는 개인 프로젝트.\n\n" +
+        "방법론: 공개 시장 리포트와 관련 기업·기술이전 사례(대만 ITRI, 한국 스타트업 등)를 조사해 경쟁사 포지셔닝을 매핑하고, ITRI 실험에서 확인한 재료·접합 기술의 한계를 상업화 장벽 관점으로 재해석. 시장 기회 슬라이드와 기술-시장 갭 분석을 결과물로 정리할 계획.\n\n" +
+        "현재 진행 중 — 조사 결과가 나오는 대로 시장 규모, 경쟁 구도, 진입 전략 데이터로 업데이트할 예정.",
+      kpis: [
+        { label: "진행 상태", value: "조사 중", delta: "TBD", positive: true },
+        { label: "분석 범위", value: "한국·대만\n일본·중국", delta: "웨어러블 진단센서", positive: true },
+        { label: "방법론", value: "경쟁사 매핑\n기술-시장 갭 분석", delta: "TBD", positive: true },
+      ],
+    },
+  },
+  {
     slug: "itri-internship",
     title: "ITRI Lab Intern",
     subtitle: "산업기술연구원(ITRI) 전자광전시스템연구소(電光所) 실험 인턴 | 미세유체 시스템 관련 실험 수행",

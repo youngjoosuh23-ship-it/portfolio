@@ -9,8 +9,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "THE ARCHIVE",
-  description: "Building ideas around people, content, and AI.",
+  title: "Youngjoo Suh",
+  description: "Building ideas around people, experiences, and AI.",
 };
 
 export default function RootLayout({

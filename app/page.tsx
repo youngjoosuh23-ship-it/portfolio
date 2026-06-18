@@ -11,10 +11,10 @@ export default function Home() {
             className="font-mono text-4xl md:text-5xl font-bold tracking-tight"
             style={{ color: "#e8ffe8" }}
           >
-            THE ARCHIVE
+            Youngjoo Suh
           </h1>
           <p className="font-mono text-xs md:text-sm tracking-wide" style={{ color: "#5a9a5a" }}>
-            Building ideas around people, content, and AI.
+            Building ideas around people, experiences, and AI.
           </p>
 
           {/* Contact */}
@@ -73,7 +73,7 @@ export default function Home() {
         style={{ borderTop: "1px solid #1a3a1a" }}
       >
         <span className="font-mono text-[10px] tracking-widest" style={{ color: "#2a5a2a" }}>
-          THE ARCHIVE
+          Youngjoo Suh
         </span>
         <span className="font-mono text-[10px]" style={{ color: "#2a5a2a" }}>
           {new Date().getFullYear()}
