@@ -33,6 +33,12 @@ export default function Home() {
             <a href="mailto:youngjoosuh23@gmail.com" className="transition-colors hover:text-[#e8ffe8]">
               youngjoosuh23@gmail.com
             </a>
+            <a href="/resume/youngjoo-suh-resume-en.pdf" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#e8ffe8]">
+              Resume (EN) ↓
+            </a>
+            <a href="/resume/youngjoo-suh-resume-kr.pdf" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#e8ffe8]">
+              이력서 (KR) ↓
+            </a>
           </div>
         </div>
 
