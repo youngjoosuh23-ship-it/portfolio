@@ -77,6 +77,7 @@ export const projects: Project[] = [
     tags: ["React", "Firebase", "Google Maps", "TypeScript"],
     year: "2025",
     type: "ai",
+    image: "/matcha_screenshot.png",
     sandboxUrl: "https://gen-lang-client-0751433140.web.app",
     document: {
       title: "Matcha — 프로젝트 개요",
