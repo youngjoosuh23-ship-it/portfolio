@@ -30,6 +30,8 @@ export type Project = {
     chartData?: ChartPoint[];
     chartLabel?: string;
     attachments?: { label: string; url: string; thumbnail?: string }[];
+    keywords?: string[];
+    learnings?: string;
   };
 };
 
@@ -42,7 +44,7 @@ export const projects: Project[] = [
     description:
       "이력서 문구 개선·구조 재설계부터 면접 준비까지. AI가 커리어 방향을 함께 설계하는 올인원 플랫폼.",
     tags: ["AI", "Next.js", "LLM", "Career"],
-    year: "2025",
+    year: "2026",
     type: "ai",
     image: "/career_copilot_screenshot.png",
     sandboxUrl: "https://ai-career-decision-copilot.vercel.app/",
@@ -75,7 +77,7 @@ export const projects: Project[] = [
     description:
       "지금 같은 장소에 있는 사람들과 실시간으로 연결되는 위치 기반 소셜 앱. 지도 체크인, 채팅 요청, 이벤트 기능으로 오프라인 첫 만남의 장벽을 낮춤.",
     tags: ["React", "Firebase", "Google Maps", "TypeScript"],
-    year: "2025",
+    year: "2026",
     type: "ai",
     image: "/matcha_screenshot.png",
     sandboxUrl: "https://gen-lang-client-0751433140.web.app",
@@ -147,6 +149,9 @@ export const projects: Project[] = [
           thumbnail: "/resume/microfluidic-bonding-review-thumb.png",
         },
       ],
+      keywords: ["실험 설계", "문헌 비교 분석", "데이터 기반 의사결정", "발표/보고"],
+      learnings:
+        "여러 재료·공정 옵션을 직접 실험하고 문헌을 비교 분석해 최적안을 도출하는 과정을 통해, 데이터를 근거로 의사결정을 지지하고 팀에 설득력 있게 전달하는 역량을 길렀음.",
     },
   },
   {
@@ -173,6 +178,9 @@ export const projects: Project[] = [
         { label: "핵심 업무", value: "1:1 과외\n학습 설계", delta: "장기 관계 관리\n4단계 프레임워크", positive: true },
         { label: "성과", value: "TOPIK 2급 → 4급", delta: "수강생 실력 향상", positive: true },
       ],
+      keywords: ["니즈 파악", "커리큘럼 설계", "장기 관계 관리", "맞춤형 코칭"],
+      learnings:
+        "정해진 문법 진도가 아니라 수강생이 실제로 원하는 목표(회화 능력)를 먼저 파악하고 학습 방식을 거꾸로 설계하는 법을 배움. 3년간 같은 수강생을 가르치며 꾸준한 피드백 루프로 관계를 유지하고 성장시키는 역량을 길렀음.",
     },
   },
 ];

@@ -145,6 +145,28 @@ function DocumentViewer({ project }: { project: Project }) {
         </div>
       </div>
 
+      {/* Core competencies / learnings */}
+      {(doc.keywords?.length || doc.learnings) && (
+        <div className="bg-[#222224] border border-[#333336] rounded-xl p-6">
+          <div className="font-mono text-xs text-[#88888E] mb-4">핵심 역량 & 배운 점</div>
+          {doc.keywords && doc.keywords.length > 0 && (
+            <div className="flex flex-wrap gap-2 mb-4">
+              {doc.keywords.map((kw) => (
+                <span
+                  key={kw}
+                  className="font-mono text-[11px] rounded-sm px-2 py-1 text-[#3B82F6] border border-[#3B82F6]/30 bg-[#3B82F6]/10"
+                >
+                  {kw}
+                </span>
+              ))}
+            </div>
+          )}
+          {doc.learnings && (
+            <p className="text-[#F0F0F0] leading-relaxed">{doc.learnings}</p>
+          )}
+        </div>
+      )}
+
       {/* Chart */}
       {doc.chartData && doc.chartData.length > 0 && (
         <div className="bg-[#222224] border border-[#333336] rounded-xl p-6">
