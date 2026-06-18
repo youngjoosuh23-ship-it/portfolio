@@ -29,7 +29,7 @@ export type Project = {
     kpis: KPI[];
     chartData?: ChartPoint[];
     chartLabel?: string;
-    attachments?: { label: string; url: string }[];
+    attachments?: { label: string; url: string; thumbnail?: string }[];
   };
 };
 
@@ -140,7 +140,11 @@ export const projects: Project[] = [
         { label: "기술 비교", value: "레이저 용접", delta: "최적 방법 도출", positive: true },
       ],
       attachments: [
-        { label: "Microfluidic Bonding Review (PDF)", url: "/resume/microfluidic-bonding-review.pdf" },
+        {
+          label: "Microfluidic Bonding Review (PDF)",
+          url: "/resume/microfluidic-bonding-review.pdf",
+          thumbnail: "/resume/microfluidic-bonding-review-thumb.png",
+        },
       ],
     },
   },
