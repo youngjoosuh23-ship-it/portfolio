@@ -1,5 +1,6 @@
 import { projects } from "@/lib/projects";
 import ProjectGrid from "@/components/ProjectGrid";
+import Greeting from "@/components/Greeting";
 
 export default function Home() {
   return (
@@ -7,12 +8,7 @@ export default function Home() {
       {/* Header */}
       <header className="flex flex-col gap-4 shrink-0">
         <div className="flex flex-col gap-3">
-          <h1
-            className="font-mono text-4xl md:text-5xl font-bold tracking-tight"
-            style={{ color: "#e8ffe8" }}
-          >
-            Youngjoo Suh
-          </h1>
+          <Greeting />
           <p className="font-mono text-xs md:text-sm tracking-wide" style={{ color: "#5a9a5a" }}>
             Building ideas around people, experiences, and AI.
           </p>

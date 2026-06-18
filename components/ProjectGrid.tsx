@@ -20,7 +20,7 @@ const typeLabel: Record<Project["type"], string> = {
 
 const sectionTitle: Record<Project["type"], string> = {
   ai: "AI",
-  leadership: "Leadership & Planning",
+  leadership: "Independent Projects",
   work: "Work Experience",
 };
 
