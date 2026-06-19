@@ -14,7 +14,7 @@ const typeColor: Record<Project["type"], string> = {
 
 const typeLabel: Record<Project["type"], string> = {
   ai: "AI",
-  leadership: "LEADERSHIP",
+  leadership: "PROJECTS",
   work: "WORK",
 };
 
