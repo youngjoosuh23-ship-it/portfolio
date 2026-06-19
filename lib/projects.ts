@@ -99,6 +99,33 @@ export const projects: Project[] = [
     },
   },
   {
+    slug: "medilink",
+    index: "PRJ_004",
+    title: "Medilink",
+    subtitle: "HCP 데이터 관리 플랫폼",
+    description:
+      "의료기기 회사 영업·마케팅 담당자를 위한 HCP(Healthcare Professional) 데이터 관리 플랫폼. HCP 등록·검색, 인터랙션 로그, 컴플라이언스 지출 관리를 팀 단위로 통합 관리.",
+    tags: ["Next.js", "Supabase", "Ollama", "CRM"],
+    year: "2026",
+    type: "ai",
+    sandboxUrl: "https://hcp-platform-lime.vercel.app",
+    document: {
+      title: "Medilink — 프로젝트 개요",
+      overview:
+        "의료기기 영업·마케팅 담당자는 다수의 HCP(의사·연구자)와 지속적으로 인터랙션하며 관계를 관리하지만, 이 과정이 개인 엑셀·메모앱·구두 전달 등으로 파편화되어 팀 간 공유가 안 되고 컴플라이언스(공정거래 자율준수) 위반 리스크가 상시 존재한다.\n\n" +
+        "Medilink는 HCP 등록·검색, 미팅/자료전달/전화/학술행사 등 인터랙션 이력 기록, HCP별 연간 컴플라이언스 지출 자동 누계 및 한도 초과 시 공시 플래그까지 한 번에 관리하는 팀 공유 기반 플랫폼이다.\n\n" +
+        "향후 로드맵으로 팀 로그인(Supabase Auth + RLS), MedSpec Translator 내장, 컴플라이언스 리포트 PDF 출력, AI 기반 HCP 세그멘테이션을 계획 중.",
+      kpis: [
+        { label: "핵심 기능", value: "HCP CRM", delta: "인터랙션 로그", positive: true },
+        { label: "컴플라이언스", value: "지출 자동 누계", delta: "공시 플래그", positive: true },
+        { label: "백엔드", value: "Supabase", delta: "PostgreSQL", positive: true },
+        { label: "개발 단계", value: "v0.1", delta: "핵심 기능 구현", positive: true },
+      ],
+      chartLabel: "DB 테이블: hcps · interactions · compliance_records",
+      keywords: ["HCP 관리", "컴플라이언스", "Next.js", "Supabase"],
+    },
+  },
+  {
     slug: "medspec-translator",
     index: "PRJ_003",
     title: "MedSpec Translator",
