@@ -114,7 +114,7 @@ export const projects: Project[] = [
       overview:
         "의료기기 영업·마케팅 담당자는 다수의 HCP(의사·연구자)와 지속적으로 인터랙션하며 관계를 관리하지만, 이 과정이 개인 엑셀·메모앱·구두 전달 등으로 파편화되어 팀 간 공유가 안 되고 컴플라이언스(공정거래 자율준수) 위반 리스크가 상시 존재한다.\n\n" +
         "Medilink는 HCP 등록·검색, 미팅/자료전달/전화/학술행사 등 인터랙션 이력 기록, HCP별 연간 컴플라이언스 지출 자동 누계 및 한도 초과 시 공시 플래그까지 한 번에 관리하는 팀 공유 기반 플랫폼이다.\n\n" +
-        "향후 로드맵으로 팀 로그인(Supabase Auth + RLS), MedSpec Translator 내장, 컴플라이언스 리포트 PDF 출력, AI 기반 HCP 세그멘테이션을 계획 중.",
+        "향후 로드맵으로 팀 로그인(Supabase Auth + RLS), 컴플라이언스 리포트 PDF 출력, AI 기반 HCP 세그멘테이션을 계획 중.",
       kpis: [
         { label: "핵심 기능", value: "HCP CRM", delta: "인터랙션 로그", positive: true },
         { label: "컴플라이언스", value: "지출 자동 누계", delta: "공시 플래그", positive: true },
@@ -123,30 +123,6 @@ export const projects: Project[] = [
       ],
       chartLabel: "DB 테이블: hcps · interactions · compliance_records",
       keywords: ["HCP 관리", "컴플라이언스", "Next.js", "Supabase"],
-    },
-  },
-  {
-    slug: "medspec-translator",
-    index: "PRJ_003",
-    title: "MedSpec Translator",
-    subtitle: "의료기기 스펙 번역기",
-    description:
-      "의료기기 기술 스펙을 의사가 바로 이해할 수 있는 언어로 번역해주는 도구. PDF 업로드 또는 직접 입력으로 스펙을 채우고 로컬 LLM(Ollama)으로 번역. 현재 개발 중인 초기 프로토타입.",
-    tags: ["LLM", "Ollama", "HTML/JS", "Prototype"],
-    year: "2026",
-    type: "ai",
-    sandboxUrl: "https://medspec.vercel.app",
-    document: {
-      title: "MedSpec Translator — 프로젝트 개요",
-      overview:
-        "기기 스펙을 의사의 언어로. 의료기기 기술 문서의 전문 스펙 항목을 임상 맥락의 설명으로 변환해주는 번역기. PDF 업로드 시 자동으로 입력칸을 채우고, 로컬에서 구동되는 Ollama LLM을 호출해 번역 결과를 생성한다.",
-      kpis: [
-        { label: "개발 단계", value: "프로토타입", delta: "진행 중", positive: true },
-        { label: "입력 방식", value: "PDF / 직접입력", delta: "구현됨", positive: true },
-        { label: "번역 엔진", value: "Ollama (로컬 LLM)", delta: "연동됨", positive: true },
-      ],
-      chartData: [{ month: "Jun", value: 664 }],
-      chartLabel: "코드 라인 수 (초기 커밋 기준)",
     },
   },
   {
