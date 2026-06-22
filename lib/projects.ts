@@ -108,7 +108,7 @@ export const projects: Project[] = [
     title: "Medilink",
     subtitle: "HCP 데이터 관리 플랫폼",
     description:
-      "의료기기 회사 영업·마케팅 담당자를 위한 HCP(Healthcare Professional) 데이터 관리 플랫폼. HCP 등록·검색, 인터랙션 로그, 컴플라이언스 지출 관리를 팀 단위로 통합 관리.",
+      "의료기기 회사 영업·마케팅 담당자를 위한 HCP(Healthcare Professional) 데이터 관리 플랫폼. 영업사원용 CRM(/sales)과 고객용 제품 카탈로그(/store)를 분리해 제공.",
     tags: ["Next.js", "Supabase", "Ollama", "CRM"],
     year: "2026",
     type: "ai",
@@ -116,14 +116,14 @@ export const projects: Project[] = [
     document: {
       title: "Medilink — 프로젝트 개요",
       overview:
-        "Problem: 의료기기 영업·마케팅 담당자는 다수의 HCP(의사·연구자)와 지속적으로 인터랙션하며 관계를 관리하지만, 이 과정이 개인 엑셀·메모앱·구두 전달 등으로 파편화되어 팀 간 공유가 안 되고 컴플라이언스(공정거래 자율준수) 위반 리스크가 상시 존재함.\n\n" +
-        "Solution: v0.1 범위를 HCP 등록·검색·상세, 인터랙션(미팅/자료전달/전화/학술행사) 이력 기록, 컴플라이언스 지출 자동 누계 + 한도 초과 시 공시 플래그 세 가지 핵심 기능으로 좁혀 먼저 구현. 팀 로그인, 리포트 출력, AI 세그멘테이션은 v0.2 이후 로드맵으로 분리해 MVP를 빠르게 검증할 수 있도록 설계.\n\n" +
-        "Result: Next.js + Supabase로 HCP·인터랙션·컴플라이언스 데이터가 한 화면에서 통합 조회되는 v0.1을 실제 배포. 팀 단위 공유와 컴플라이언스 추적이라는 핵심 문제를 코드로 증명.",
+        "Problem: 직접 겪은 업무는 아니지만, 의료기기 영업·마케팅 업무를 조사하던 중 비대면 세일즈로의 전환이 업계에서 활발히 이루어지고 있다는 소식을 접함. 대면 미팅이 줄고 전화·메신저·화상회의 등 디지털 채널로 HCP와의 인터랙션이 옮겨가는데, 이 변화는 서로 다른 두 사용자에게 다른 문제를 만든다고 봄 — 영업사원은 분산된 개인 도구(엑셀·메모앱 등)로 인터랙션을 관리하느라 컴플라이언스(공정거래 자율준수) 위반 리스크를 안게 되고, HCP(고객) 입장에서는 비대면 환경에서 제품 정보를 확인할 채널이 마땅치 않음.\n\n" +
+        "Solution: 두 사용자의 화면을 처음부터 분리해서 설계 — 영업사원용 CRM(HCP 등록·검색·상세, 인터랙션 이력, 컴플라이언스 자동 누계+공시 플래그)은 `/sales` 영역으로, HCP가 제품을 직접 조회하고 견적/입찰을 문의하는 고객용 카탈로그는 `/store` 영역으로 분리. 로그인 시점에도 '영업사원'과 '병원·구매처' 역할을 먼저 선택하게 해 온보딩부터 두 사용자가 섞이지 않도록 함.\n\n" +
+        "Result: Next.js + Supabase로 영업사원용 CRM과 고객용 카탈로그를 실제로 분리 배포. 각 영역에 다른 색상 테마를 적용해 같은 제품 안에서도 다른 화면임을 시각적으로 구분되게 만들고, 회사 소속을 잘못 불러오던 버그도 함께 수정.",
       kpis: [
-        { label: "핵심 기능", value: "HCP CRM", delta: "인터랙션 로그", positive: true },
+        { label: "화면 분리", value: "/sales · /store", delta: "역할별 분리", positive: true },
         { label: "컴플라이언스", value: "지출 자동 누계", delta: "공시 플래그", positive: true },
         { label: "백엔드", value: "Supabase", delta: "PostgreSQL", positive: true },
-        { label: "개발 단계", value: "v0.1", delta: "핵심 기능 구현", positive: true },
+        { label: "온보딩", value: "역할 선택 로그인", delta: "버그 수정", positive: true },
       ],
       chartLabel: "DB 테이블: hcps · interactions · compliance_records",
       keywords: ["HCP 관리", "컴플라이언스", "Next.js", "Supabase"],
