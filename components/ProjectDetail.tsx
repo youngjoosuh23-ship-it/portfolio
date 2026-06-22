@@ -12,6 +12,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import type { Project } from "@/lib/projects";
+import { useLang } from "@/components/LangProvider";
 
 type DeviceMode = "desktop" | "tablet" | "mobile";
 
@@ -34,6 +35,7 @@ const deviceConfig: Record<
 
 function SandboxViewer({ project }: { project: Project }) {
   const [device, setDevice] = useState<DeviceMode>("desktop");
+  const { lang } = useLang();
 
   return (
     <div className="flex flex-col gap-6">
@@ -58,7 +60,7 @@ function SandboxViewer({ project }: { project: Project }) {
           rel="noopener noreferrer"
           className="ml-auto font-mono text-xs text-[#3B82F6] hover:text-[#60A5FA] transition-colors"
         >
-          새 탭에서 열기 ↗
+          {lang === "ko" ? "새 탭에서 열기 ↗" : "Open in new tab ↗"}
         </a>
       </div>
 
@@ -107,29 +109,30 @@ function SandboxViewer({ project }: { project: Project }) {
 
 function DocumentViewer({ project }: { project: Project }) {
   const { document: doc } = project;
+  const { lang } = useLang();
 
   return (
     <div className="flex flex-col gap-8">
       {/* Overview */}
       <div className="bg-[#222224] border border-[#333336] rounded-xl p-6">
         <div className="font-mono text-xs text-[#88888E] mb-2">OVERVIEW</div>
-        <p className="text-[#F0F0F0] leading-relaxed whitespace-pre-line">{doc.overview}</p>
+        <p className="text-[#F0F0F0] leading-relaxed whitespace-pre-line">{doc.overview[lang]}</p>
       </div>
 
       {/* KPI Cards */}
       <div>
         <div className="font-mono text-xs text-[#88888E] mb-4">KEY METRICS</div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          {doc.kpis.map((kpi) => (
+          {doc.kpis.map((kpi, i) => (
             <div
-              key={kpi.label}
+              key={i}
               className="bg-[#222224] border border-[#333336] rounded-xl p-4 flex flex-col gap-2"
             >
               <span className="font-mono text-[11px] text-[#88888E]">
-                {kpi.label}
+                {kpi.label[lang]}
               </span>
               <span className="text-2xl font-bold text-[#F0F0F0] whitespace-pre-line">
-                {kpi.value}
+                {kpi.value[lang]}
               </span>
               {kpi.delta && (
                 <span
@@ -137,7 +140,7 @@ function DocumentViewer({ project }: { project: Project }) {
                     kpi.positive ? "text-[#10B981]" : "text-[#EF4444]"
                   }`}
                 >
-                  {kpi.delta}
+                  {kpi.delta[lang]}
                 </span>
               )}
             </div>
@@ -148,21 +151,23 @@ function DocumentViewer({ project }: { project: Project }) {
       {/* Core competencies / learnings */}
       {(doc.keywords?.length || doc.learnings) && (
         <div className="bg-[#222224] border border-[#333336] rounded-xl p-6">
-          <div className="font-mono text-xs text-[#88888E] mb-4">핵심 역량 & 배운 점</div>
+          <div className="font-mono text-xs text-[#88888E] mb-4">
+            {lang === "ko" ? "핵심 역량 & 배운 점" : "Core Skills & Learnings"}
+          </div>
           {doc.keywords && doc.keywords.length > 0 && (
             <div className="flex flex-wrap gap-2 mb-4">
-              {doc.keywords.map((kw) => (
+              {doc.keywords.map((kw, i) => (
                 <span
-                  key={kw}
+                  key={i}
                   className="font-mono text-[11px] rounded-sm px-2 py-1 text-[#3B82F6] border border-[#3B82F6]/30 bg-[#3B82F6]/10"
                 >
-                  {kw}
+                  {kw[lang]}
                 </span>
               ))}
             </div>
           )}
           {doc.learnings && (
-            <p className="text-[#F0F0F0] leading-relaxed">{doc.learnings}</p>
+            <p className="text-[#F0F0F0] leading-relaxed">{doc.learnings[lang]}</p>
           )}
         </div>
       )}
@@ -171,7 +176,7 @@ function DocumentViewer({ project }: { project: Project }) {
       {doc.chartData && doc.chartData.length > 0 && (
         <div className="bg-[#222224] border border-[#333336] rounded-xl p-6">
           <div className="font-mono text-xs text-[#88888E] mb-6">
-            {doc.chartLabel} TREND
+            {doc.chartLabel?.[lang]} TREND
           </div>
           <ResponsiveContainer width="100%" height={220}>
             <AreaChart

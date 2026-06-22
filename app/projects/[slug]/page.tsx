@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getProject, projects } from "@/lib/projects";
 import ProjectDetail from "@/components/ProjectDetail";
+import LocalizedText from "@/components/LocalizedText";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -45,7 +46,9 @@ export default async function ProjectPage({
         <h1 className="font-mono text-3xl md:text-4xl font-bold mb-2" style={{ color: "#e8ffe8" }}>
           {project.title}
         </h1>
-        <p className="font-mono text-sm mb-5" style={{ color: "#1a6b1a" }}>{project.subtitle}</p>
+        <p className="font-mono text-sm mb-5" style={{ color: "#1a6b1a" }}>
+          <LocalizedText text={project.subtitle} />
+        </p>
 
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (

@@ -3,7 +3,7 @@ import ProjectGrid from "@/components/ProjectGrid";
 
 export default function Home() {
   return (
-    <main className="px-6 py-8 max-w-7xl mx-auto w-full h-[calc(100vh-2.5rem)] flex flex-col gap-8 overflow-hidden">
+    <main className="px-6 py-8 max-w-7xl mx-auto w-full min-h-[calc(100vh-2.5rem)] flex flex-col gap-8">
       {/* Header */}
       <header className="flex flex-col gap-4 shrink-0">
         <div className="flex flex-col gap-3">

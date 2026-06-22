@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import type { Project } from "@/lib/projects";
+import { useLang } from "@/components/LangProvider";
 
 const typeColor: Record<Project["type"], string> = {
   ai: "#00ff41",
@@ -14,13 +15,13 @@ const typeColor: Record<Project["type"], string> = {
 
 const typeLabel: Record<Project["type"], string> = {
   ai: "AI",
-  leadership: "PROJECTS",
+  leadership: "LEADERSHIP",
   work: "WORK",
 };
 
 const sectionTitle: Record<Project["type"], string> = {
   ai: "AI",
-  leadership: "Independent Projects",
+  leadership: "Leadership Experience",
   work: "Work Experience",
 };
 
@@ -31,6 +32,7 @@ const spring = { type: "spring", stiffness: 380, damping: 22 } as const;
 // ── single card ──────────────────────────────────────────────
 function ProjectCard({ project }: { project: Project }) {
   const color = typeColor[project.type];
+  const { lang } = useLang();
 
   return (
     <motion.div
@@ -91,7 +93,7 @@ function ProjectCard({ project }: { project: Project }) {
             </h3>
 
             <p className="font-mono text-[11px] leading-relaxed" style={{ color: "#3a7a3a" }}>
-              {project.description}
+              {project.description[lang]}
             </p>
 
             <div className="flex flex-wrap gap-1.5">
@@ -231,7 +233,7 @@ function DragScrollArea({ children }: { children: ReactNode }) {
       ref={ref}
       onMouseDown={onMouseDown}
       onClickCapture={onClickCapture}
-      className="h-full overflow-y-auto cursor-grab active:cursor-grabbing [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#1a3a1a] [&::-webkit-scrollbar-thumb]:rounded-full"
+      className="max-h-[65vh] overflow-y-auto cursor-grab active:cursor-grabbing [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#1a3a1a] [&::-webkit-scrollbar-thumb]:rounded-full"
     >
       {children}
     </div>
@@ -249,7 +251,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
   );
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-full">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
       {sectionOrder.map((type, colIdx) => {
         const group = grouped[type];
         const color = typeColor[type];
@@ -289,11 +291,15 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
               >
                 // empty
               </div>
-            ) : type === "work" ? (
-              <div className="flex-1 min-h-0 overflow-visible flex flex-col gap-3">
-                {group.map((project) => (
-                  <ProjectCard key={project.slug} project={project} />
-                ))}
+            ) : type === "work" || type === "ai" ? (
+              <div className="flex-1 min-h-0">
+                <DragScrollArea>
+                  <div className="flex flex-col gap-3">
+                    {group.map((project) => (
+                      <ProjectCard key={project.slug} project={project} />
+                    ))}
+                  </div>
+                </DragScrollArea>
               </div>
             ) : group.length >= 3 ? (
               <div className="flex-1 min-h-0">
