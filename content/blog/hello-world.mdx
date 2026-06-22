@@ -1,0 +1,21 @@
+export const metadata = {
+  title: "Hello, World",
+  date: "2026-06-22",
+  summary: "First post — how this blog works and what's coming next.",
+};
+
+이 블로그는 `content/blog/` 폴더에 `.mdx` 파일을 추가하고 git에 push하면 자동으로 게시됩니다.
+
+## 글쓰기
+
+- `content/blog/내-글-슬러그.mdx` 파일을 만든다
+- 맨 위에 `metadata` (title, date, summary)를 적는다
+- 그 아래에 마크다운으로 본문을 쓴다
+
+## 사진 넣기
+
+`public/blog/` 안에 이미지를 넣고 마크다운 문법으로 불러오면 됩니다.
+
+```md
+![설명](/blog/example.png)
+```
