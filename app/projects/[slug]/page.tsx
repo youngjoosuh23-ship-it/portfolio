@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getProject, projects } from "@/lib/projects";
+import { getProject, hasReport, projects } from "@/lib/projects";
 import ProjectDetail from "@/components/ProjectDetail";
 import LocalizedText from "@/components/LocalizedText";
 
@@ -17,6 +17,12 @@ export default async function ProjectPage({
   const project = getProject(slug);
 
   if (!project) notFound();
+
+  let report: React.ReactNode | undefined;
+  if (hasReport(slug)) {
+    const { default: ReportContent } = await import(`@/content/reports/${slug}.mdx`);
+    report = <ReportContent />;
+  }
 
   return (
     <main className="min-h-screen px-6 py-10 max-w-6xl mx-auto w-full">
@@ -66,7 +72,7 @@ export default async function ProjectPage({
       </header>
 
       {/* Detail tabs */}
-      <ProjectDetail project={project} />
+      <ProjectDetail project={project} report={report} />
     </main>
   );
 }

@@ -1,3 +1,6 @@
+import fs from "fs";
+import path from "path";
+
 export type Lang = "ko" | "en";
 
 export type L = { ko: string; en: string };
@@ -427,4 +430,8 @@ export const projects: Project[] = [
 
 export function getProject(slug: string): Project | undefined {
   return projects.find((p) => p.slug === slug);
+}
+
+export function hasReport(slug: string): boolean {
+  return fs.existsSync(path.join(process.cwd(), "content/reports", `${slug}.mdx`));
 }

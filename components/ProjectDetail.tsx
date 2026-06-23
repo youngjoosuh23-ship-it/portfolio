@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   AreaChart,
@@ -14,46 +14,24 @@ import {
 import type { Project } from "@/lib/projects";
 import { useLang } from "@/components/LangProvider";
 
-type DeviceMode = "desktop" | "tablet" | "mobile";
-
-const deviceConfig: Record<
-  DeviceMode,
-  { label: string; width: string; aspect: string }
-> = {
-  desktop: { label: "Desktop", width: "100%", aspect: "aspect-video" },
-  tablet: {
-    label: "Tablet",
-    width: "max-w-[640px]",
-    aspect: "aspect-[3/4]",
-  },
-  mobile: {
-    label: "Mobile",
-    width: "max-w-[375px]",
-    aspect: "aspect-[9/19]",
-  },
-};
-
-function SandboxViewer({ project }: { project: Project }) {
-  const [device, setDevice] = useState<DeviceMode>("desktop");
+function SandboxViewer({
+  project,
+  onShowReport,
+}: {
+  project: Project;
+  onShowReport: () => void;
+}) {
   const { lang } = useLang();
 
   return (
     <div className="flex flex-col gap-6">
-      {/* Device switcher */}
       <div className="flex items-center gap-2">
-        {(Object.keys(deviceConfig) as DeviceMode[]).map((d) => (
-          <button
-            key={d}
-            onClick={() => setDevice(d)}
-            className={`font-mono text-xs px-3 py-1.5 rounded border transition-all ${
-              device === d
-                ? "border-[#3B82F6] text-[#3B82F6] bg-[#3B82F6]/10"
-                : "border-[#333336] text-[#88888E] hover:border-[#555558] hover:text-[#F0F0F0]"
-            }`}
-          >
-            {deviceConfig[d].label.toUpperCase()}
-          </button>
-        ))}
+        <button
+          onClick={onShowReport}
+          className="font-mono text-xs px-3 py-1.5 rounded border border-[#3B82F6] text-[#3B82F6] bg-[#3B82F6]/10 hover:bg-[#3B82F6]/20 transition-colors"
+        >
+          {lang === "ko" ? "보고서 보기" : "View Report"}
+        </button>
         <a
           href={project.sandboxUrl}
           target="_blank"
@@ -66,34 +44,23 @@ function SandboxViewer({ project }: { project: Project }) {
 
       {/* Frame */}
       <div className="flex justify-center">
-        <motion.div
-          key={device}
-          initial={{ opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.25 }}
-          className={`w-full ${deviceConfig[device].width}`}
-        >
-          <div
-            className={`relative w-full ${deviceConfig[device].aspect} bg-[#111112] rounded-xl border border-[#333336] overflow-hidden`}
-          >
-            {/* Browser chrome (desktop only) */}
-            {device === "desktop" && (
-              <div className="flex items-center gap-2 px-4 h-9 bg-[#1E1E20] border-b border-[#333336]">
-                <div className="flex gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
-                </div>
-                <a
-                  href={project.sandboxUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1 mx-4 h-5 bg-[#2A2A2D] rounded text-[10px] font-mono text-[#88888E] flex items-center px-2 overflow-hidden hover:text-[#F0F0F0] transition-colors"
-                >
-                  {project.sandboxUrl}
-                </a>
+        <div className="w-full">
+          <div className="relative w-full aspect-video bg-[#111112] rounded-xl border border-[#333336] overflow-hidden">
+            <div className="flex items-center gap-2 px-4 h-9 bg-[#1E1E20] border-b border-[#333336]">
+              <div className="flex gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#28C840]" />
               </div>
-            )}
+              <a
+                href={project.sandboxUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 mx-4 h-5 bg-[#2A2A2D] rounded text-[10px] font-mono text-[#88888E] flex items-center px-2 overflow-hidden hover:text-[#F0F0F0] transition-colors"
+              >
+                {project.sandboxUrl}
+              </a>
+            </div>
             <iframe
               src={project.sandboxUrl}
               className="w-full h-full border-0"
@@ -101,15 +68,25 @@ function SandboxViewer({ project }: { project: Project }) {
               sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-top-navigation-by-user-activation"
             />
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
 }
 
-function DocumentViewer({ project }: { project: Project }) {
+function DocumentViewer({
+  project,
+  report,
+}: {
+  project: Project;
+  report?: ReactNode;
+}) {
   const { document: doc } = project;
   const { lang } = useLang();
+
+  if (report) {
+    return <div className="bg-[#222224] border border-[#333336] rounded-xl p-6 md:p-8">{report}</div>;
+  }
 
   return (
     <div className="flex flex-col gap-8">
@@ -280,13 +257,19 @@ function DocumentViewer({ project }: { project: Project }) {
 
 type Tab = "sandbox" | "document";
 
-export default function ProjectDetail({ project }: { project: Project }) {
+export default function ProjectDetail({
+  project,
+  report,
+}: {
+  project: Project;
+  report?: ReactNode;
+}) {
   const [activeTab, setActiveTab] = useState<Tab>(
     project.hasLiveDemo === false ? "document" : "sandbox"
   );
 
   if (project.hasLiveDemo === false) {
-    return <DocumentViewer project={project} />;
+    return <DocumentViewer project={project} report={report} />;
   }
 
   return (
@@ -330,9 +313,12 @@ export default function ProjectDetail({ project }: { project: Project }) {
           transition={{ duration: 0.2 }}
         >
           {activeTab === "sandbox" ? (
-            <SandboxViewer project={project} />
+            <SandboxViewer
+              project={project}
+              onShowReport={() => setActiveTab("document")}
+            />
           ) : (
-            <DocumentViewer project={project} />
+            <DocumentViewer project={project} report={report} />
           )}
         </motion.div>
       </AnimatePresence>
