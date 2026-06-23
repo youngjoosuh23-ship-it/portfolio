@@ -8,9 +8,9 @@ import type { Project } from "@/lib/projects";
 import { useLang } from "@/components/LangProvider";
 
 const typeColor: Record<Project["type"], string> = {
-  ai: "#00ff41",
-  leadership: "#39d0ff",
-  work: "#ffe400",
+  ai: "#ff6347",
+  leadership: "#4682b4",
+  work: "#b0c4de",
 };
 
 const typeLabel: Record<Project["type"], string> = {
@@ -45,14 +45,14 @@ function ProjectCard({ project }: { project: Project }) {
         <motion.div
           className="relative border rounded-2xl overflow-hidden flex flex-col"
           style={{
-            backgroundColor: "rgba(0,18,0,0.55)",
-            borderColor: "#002800",
+            backgroundColor: "rgba(12,12,14,0.55)",
+            borderColor: "#1a2129",
             backdropFilter: "blur(16px)",
             WebkitBackdropFilter: "blur(16px)",
             boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
           }}
           whileHover={{
-            backgroundColor: "rgba(0,28,0,0.75)",
+            backgroundColor: "rgba(18,18,20,0.75)",
             borderColor: color + "55",
             boxShadow: `0 16px 40px rgba(0,0,0,0.5), 0 0 0 0.5px ${color}33`,
           }}
@@ -72,7 +72,7 @@ function ProjectCard({ project }: { project: Project }) {
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(to bottom, transparent 40%, rgba(0,18,0,0.95) 100%)",
+                    "linear-gradient(to bottom, transparent 40%, rgba(10,10,11,0.95) 100%)",
                 }}
               />
             </div>
@@ -80,19 +80,19 @@ function ProjectCard({ project }: { project: Project }) {
 
           <div className="p-4 flex flex-col gap-3">
             <div className="flex items-center justify-between">
-              <span className="font-mono text-[10px] tracking-widest" style={{ color: "#3a7a3a" }}>
+              <span className="font-mono text-[10px] tracking-widest" style={{ color: "#51687d" }}>
                 {project.index ?? ""}
               </span>
-              <span className="font-mono text-[10px]" style={{ color: "#3a7a3a" }}>
+              <span className="font-mono text-[10px]" style={{ color: "#51687d" }}>
                 {project.year}
               </span>
             </div>
 
-            <h3 className="font-mono text-sm font-bold leading-snug" style={{ color: "#ccffcc" }}>
+            <h3 className="font-mono text-sm font-bold leading-snug" style={{ color: "#dce8f2" }}>
               {project.title}
             </h3>
 
-            <p className="font-mono text-[11px] leading-relaxed" style={{ color: "#3a7a3a" }}>
+            <p className="font-mono text-[11px] leading-relaxed" style={{ color: "#51687d" }}>
               {project.description[lang]}
             </p>
 
@@ -102,9 +102,9 @@ function ProjectCard({ project }: { project: Project }) {
                   key={tag}
                   className="font-mono text-[10px] px-1.5 py-0.5 rounded-md"
                   style={{
-                    color: "#3a7a3a",
-                    border: "1px solid #002800",
-                    backgroundColor: "rgba(0,20,0,0.4)",
+                    color: "#51687d",
+                    border: "1px solid #1a2129",
+                    backgroundColor: "rgba(12,12,14,0.4)",
                   }}
                 >
                   {tag}
@@ -233,7 +233,7 @@ function DragScrollArea({ children }: { children: ReactNode }) {
       ref={ref}
       onMouseDown={onMouseDown}
       onClickCapture={onClickCapture}
-      className="max-h-[65vh] overflow-y-auto cursor-grab active:cursor-grabbing [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#1a3a1a] [&::-webkit-scrollbar-thumb]:rounded-full"
+      className="max-h-[65vh] overflow-y-auto cursor-grab active:cursor-grabbing [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-[#1a2129] [&::-webkit-scrollbar-thumb]:rounded-full"
     >
       {children}
     </div>
@@ -273,11 +273,11 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
                 >
                   {typeLabel[type]}
                 </span>
-                <span className="font-mono text-[10px]" style={{ color: "#2a5a2a" }}>
+                <span className="font-mono text-[10px]" style={{ color: "#3a4b5c" }}>
                   {group.length}
                 </span>
               </div>
-              <h2 className="font-mono text-xs tracking-widest" style={{ color: "#5a9a5a" }}>
+              <h2 className="font-mono text-xs tracking-widest" style={{ color: "#7c97b0" }}>
                 {sectionTitle[type]}
               </h2>
               <div className="h-px w-full" style={{ backgroundColor: color + "33" }} />
@@ -287,7 +287,7 @@ export default function ProjectGrid({ projects }: { projects: Project[] }) {
             {group.length === 0 ? (
               <div
                 className="font-mono text-[11px] py-8 text-center border border-dashed rounded-2xl"
-                style={{ color: "#1a4a1a", borderColor: "#001a00" }}
+                style={{ color: "#2c3947", borderColor: "#11161b" }}
               >
                 // empty
               </div>

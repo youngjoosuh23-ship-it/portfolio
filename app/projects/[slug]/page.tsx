@@ -29,8 +29,8 @@ export default async function ProjectPage({
       {/* Back nav */}
       <Link
         href="/"
-        className="inline-flex items-center gap-2 font-mono text-xs transition-colors mb-10 hover:text-[#e8ffe8]"
-        style={{ color: "#5a9a5a" }}
+        className="inline-flex items-center gap-2 font-mono text-xs transition-colors mb-10 hover:text-[#eaf1f8]"
+        style={{ color: "#7c97b0" }}
       >
         ← HOME
       </Link>
@@ -40,19 +40,19 @@ export default async function ProjectPage({
         <div className="flex items-center gap-3 mb-3">
           {project.index && (
             <>
-              <span className="font-mono text-[11px] tracking-wider" style={{ color: "#005500" }}>
+              <span className="font-mono text-[11px] tracking-wider" style={{ color: "#6e8cad" }}>
                 {project.index}
               </span>
-              <span className="font-mono text-[11px]" style={{ color: "#003b00" }}>/</span>
+              <span className="font-mono text-[11px]" style={{ color: "#3a4b5c" }}>/</span>
             </>
           )}
-          <span className="font-mono text-[11px]" style={{ color: "#005500" }}>{project.year}</span>
+          <span className="font-mono text-[11px]" style={{ color: "#6e8cad" }}>{project.year}</span>
         </div>
 
-        <h1 className="font-mono text-3xl md:text-4xl font-bold mb-2" style={{ color: "#e8ffe8" }}>
+        <h1 className="font-mono text-3xl md:text-4xl font-bold mb-2" style={{ color: "#eaf1f8" }}>
           {project.title}
         </h1>
-        <p className="font-mono text-sm mb-5" style={{ color: "#1a6b1a" }}>
+        <p className="font-mono text-sm mb-5" style={{ color: "#4d6f8a" }}>
           <LocalizedText text={project.subtitle} />
         </p>
 
@@ -61,14 +61,14 @@ export default async function ProjectPage({
             <span
               key={tag}
               className="font-mono text-[11px] rounded-sm px-2 py-0.5"
-              style={{ color: "#005500", border: "1px solid #002800" }}
+              style={{ color: "#6e8cad", border: "1px solid #1a2129" }}
             >
               {tag}
             </span>
           ))}
         </div>
 
-        <div className="mt-6 h-px" style={{ backgroundColor: "#002200" }} />
+        <div className="mt-6 h-px" style={{ backgroundColor: "#11161b" }} />
       </header>
 
       {/* Detail tabs */}

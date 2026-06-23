@@ -9,43 +9,43 @@ export default function Home() {
         <div className="flex flex-col gap-3">
           <h1
             className="font-mono text-4xl md:text-5xl font-bold tracking-tight"
-            style={{ color: "#e8ffe8" }}
+            style={{ color: "#eaf1f8" }}
           >
             Youngjoo Suh
           </h1>
-          <p className="font-mono text-xs md:text-sm tracking-wide" style={{ color: "#5a9a5a" }}>
+          <p className="font-mono text-xs md:text-sm tracking-wide" style={{ color: "#7c97b0" }}>
             Building ideas around people, experiences, and AI.
           </p>
 
           {/* Contact */}
-          <div className="font-mono text-[11px] flex flex-row flex-wrap gap-x-6 gap-y-1 mt-1" style={{ color: "#5a9a5a" }}>
-            <a href="tel:+821097881938" className="transition-colors hover:text-[#e8ffe8]">
+          <div className="font-mono text-[11px] flex flex-row flex-wrap gap-x-6 gap-y-1 mt-1" style={{ color: "#7c97b0" }}>
+            <a href="tel:+821097881938" className="transition-colors hover:text-[#eaf1f8]">
               +82 010-9788-1938
             </a>
             <a
               href="https://www.linkedin.com/in/youngjoosuh23"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors hover:text-[#e8ffe8]"
+              className="transition-colors hover:text-[#eaf1f8]"
             >
               linkedin.com/in/youngjoosuh23
             </a>
-            <a href="mailto:youngjoosuh23@gmail.com" className="transition-colors hover:text-[#e8ffe8]">
+            <a href="mailto:youngjoosuh23@gmail.com" className="transition-colors hover:text-[#eaf1f8]">
               youngjoosuh23@gmail.com
             </a>
           </div>
 
           {/* Resume */}
           <div className="flex items-center gap-2 mt-1">
-            <span className="font-mono text-[10px] tracking-widest" style={{ color: "#3a7a3a" }}>
+            <span className="font-mono text-[10px] tracking-widest" style={{ color: "#51687d" }}>
               RESUME
             </span>
             <a
               href="/resume/youngjoo-suh-resume-en.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-xs px-3 py-1.5 rounded-md border transition-colors hover:bg-[#00ff4114]"
-              style={{ borderColor: "#00ff4155", color: "#00ff41" }}
+              className="font-mono text-xs px-3 py-1.5 rounded-md border transition-colors hover:bg-[#ff634714]"
+              style={{ borderColor: "#ff634755", color: "#ff6347" }}
             >
               EN ↓
             </a>
@@ -53,8 +53,8 @@ export default function Home() {
               href="/resume/youngjoo-suh-resume-kr.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-xs px-3 py-1.5 rounded-md border transition-colors hover:bg-[#00ff4114]"
-              style={{ borderColor: "#00ff4155", color: "#00ff41" }}
+              className="font-mono text-xs px-3 py-1.5 rounded-md border transition-colors hover:bg-[#ff634714]"
+              style={{ borderColor: "#ff634755", color: "#ff6347" }}
             >
               KR ↓
             </a>
@@ -70,12 +70,12 @@ export default function Home() {
       {/* Footer */}
       <footer
         className="pt-6 flex items-center justify-between shrink-0"
-        style={{ borderTop: "1px solid #1a3a1a" }}
+        style={{ borderTop: "1px solid #1a2129" }}
       >
-        <span className="font-mono text-[10px] tracking-widest" style={{ color: "#2a5a2a" }}>
+        <span className="font-mono text-[10px] tracking-widest" style={{ color: "#3a4b5c" }}>
           Youngjoo Suh
         </span>
-        <span className="font-mono text-[10px]" style={{ color: "#2a5a2a" }}>
+        <span className="font-mono text-[10px]" style={{ color: "#3a4b5c" }}>
           {new Date().getFullYear()}
         </span>
       </footer>

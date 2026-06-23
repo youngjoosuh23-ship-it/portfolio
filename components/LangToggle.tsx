@@ -10,8 +10,8 @@ export default function LangToggle() {
       onClick={toggle}
       className="font-mono text-[10px] tracking-widest px-2 py-1 rounded-sm border transition-colors"
       style={{
-        color: "#5a9a5a",
-        borderColor: "#003300",
+        color: "#7c97b0",
+        borderColor: "#1a2129",
       }}
     >
       {lang === "ko" ? "KO" : "EN"} ⇄

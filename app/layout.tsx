@@ -28,22 +28,22 @@ export default function RootLayout({
           <nav
             className="sticky top-0 z-50 border-b"
             style={{
-              borderColor: "#003300",
+              borderColor: "#1a2129",
               backgroundColor: "rgba(0,0,0,0.85)",
               backdropFilter: "blur(8px)",
             }}
           >
             <div className="max-w-7xl mx-auto px-6 h-10 flex items-center justify-between">
               <div className="flex items-center gap-5">
-                <Link href="/" className="font-mono text-xs tracking-[0.3em] transition-colors hover:text-[#e8ffe8]" style={{ color: "#5a9a5a" }}>
+                <Link href="/" className="font-mono text-xs tracking-[0.3em] transition-colors hover:text-[#eaf1f8]" style={{ color: "#7c97b0" }}>
                   HOME
                 </Link>
-                <Link href="/blog" className="font-mono text-xs tracking-[0.3em] transition-colors hover:text-[#e8ffe8]" style={{ color: "#5a9a5a" }}>
+                <Link href="/blog" className="font-mono text-xs tracking-[0.3em] transition-colors hover:text-[#eaf1f8]" style={{ color: "#7c97b0" }}>
                   BLOG
                 </Link>
               </div>
               <div className="flex items-center gap-4">
-                <span className="font-mono text-[10px] tracking-widest" style={{ color: "#2a4a2a" }}>
+                <span className="font-mono text-[10px] tracking-widest" style={{ color: "#3a4b5c" }}>
                   THE_ARCHIVE — v1.0
                 </span>
                 <LangToggle />

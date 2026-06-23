@@ -28,7 +28,7 @@ function SandboxViewer({
       <div className="flex items-center gap-2">
         <button
           onClick={onShowReport}
-          className="font-mono text-xs px-3 py-1.5 rounded border border-[#3B82F6] text-[#3B82F6] bg-[#3B82F6]/10 hover:bg-[#3B82F6]/20 transition-colors"
+          className="font-mono text-xs px-3 py-1.5 rounded border border-[#FF6347] text-[#FF6347] bg-[#FF6347]/10 hover:bg-[#FF6347]/20 transition-colors"
         >
           {lang === "ko" ? "보고서 보기" : "View Report"}
         </button>
@@ -36,7 +36,7 @@ function SandboxViewer({
           href={project.sandboxUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="ml-auto font-mono text-xs text-[#3B82F6] hover:text-[#60A5FA] transition-colors"
+          className="ml-auto font-mono text-xs text-[#FF6347] hover:text-[#FF8569] transition-colors"
         >
           {lang === "ko" ? "새 탭에서 열기 ↗" : "Open in new tab ↗"}
         </a>
@@ -45,8 +45,8 @@ function SandboxViewer({
       {/* Frame */}
       <div className="flex justify-center">
         <div className="w-full">
-          <div className="relative w-full aspect-video bg-[#111112] rounded-xl border border-[#333336] overflow-hidden">
-            <div className="flex items-center gap-2 px-4 h-9 bg-[#1E1E20] border-b border-[#333336]">
+          <div className="relative w-full aspect-video bg-[#0A0A0C] rounded-xl border border-[#232830] overflow-hidden">
+            <div className="flex items-center gap-2 px-4 h-9 bg-[#11141A] border-b border-[#232830]">
               <div className="flex gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#FF5F57]" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#FFBD2E]" />
@@ -56,7 +56,7 @@ function SandboxViewer({
                 href={project.sandboxUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 mx-4 h-5 bg-[#2A2A2D] rounded text-[10px] font-mono text-[#88888E] flex items-center px-2 overflow-hidden hover:text-[#F0F0F0] transition-colors"
+                className="flex-1 mx-4 h-5 bg-[#191C21] rounded text-[10px] font-mono text-[#6E7E90] flex items-center px-2 overflow-hidden hover:text-[#E7EEF5] transition-colors"
               >
                 {project.sandboxUrl}
               </a>
@@ -85,30 +85,30 @@ function DocumentViewer({
   const { lang } = useLang();
 
   if (report) {
-    return <div className="bg-[#222224] border border-[#333336] rounded-xl p-6 md:p-8">{report}</div>;
+    return <div className="bg-[#14171C] border border-[#232830] rounded-xl p-6 md:p-8">{report}</div>;
   }
 
   return (
     <div className="flex flex-col gap-8">
       {/* Overview */}
-      <div className="bg-[#222224] border border-[#333336] rounded-xl p-6">
-        <div className="font-mono text-xs text-[#88888E] mb-2">OVERVIEW</div>
-        <p className="text-[#F0F0F0] leading-relaxed whitespace-pre-line">{doc.overview[lang]}</p>
+      <div className="bg-[#14171C] border border-[#232830] rounded-xl p-6">
+        <div className="font-mono text-xs text-[#6E7E90] mb-2">OVERVIEW</div>
+        <p className="text-[#E7EEF5] leading-relaxed whitespace-pre-line">{doc.overview[lang]}</p>
       </div>
 
       {/* KPI Cards */}
       <div>
-        <div className="font-mono text-xs text-[#88888E] mb-4">KEY METRICS</div>
+        <div className="font-mono text-xs text-[#6E7E90] mb-4">KEY METRICS</div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {doc.kpis.map((kpi, i) => (
             <div
               key={i}
-              className="bg-[#222224] border border-[#333336] rounded-xl p-4 flex flex-col gap-2"
+              className="bg-[#14171C] border border-[#232830] rounded-xl p-4 flex flex-col gap-2"
             >
-              <span className="font-mono text-[11px] text-[#88888E]">
+              <span className="font-mono text-[11px] text-[#6E7E90]">
                 {kpi.label[lang]}
               </span>
-              <span className="text-2xl font-bold text-[#F0F0F0] whitespace-pre-line">
+              <span className="text-2xl font-bold text-[#E7EEF5] whitespace-pre-line">
                 {kpi.value[lang]}
               </span>
               {kpi.delta && (
@@ -127,8 +127,8 @@ function DocumentViewer({
 
       {/* Core competencies / learnings */}
       {(doc.keywords?.length || doc.learnings) && (
-        <div className="bg-[#222224] border border-[#333336] rounded-xl p-6">
-          <div className="font-mono text-xs text-[#88888E] mb-4">
+        <div className="bg-[#14171C] border border-[#232830] rounded-xl p-6">
+          <div className="font-mono text-xs text-[#6E7E90] mb-4">
             {lang === "ko" ? "핵심 역량 & 배운 점" : "Core Skills & Learnings"}
           </div>
           {doc.keywords && doc.keywords.length > 0 && (
@@ -136,7 +136,7 @@ function DocumentViewer({
               {doc.keywords.map((kw, i) => (
                 <span
                   key={i}
-                  className="font-mono text-[11px] rounded-sm px-2 py-1 text-[#3B82F6] border border-[#3B82F6]/30 bg-[#3B82F6]/10"
+                  className="font-mono text-[11px] rounded-sm px-2 py-1 text-[#FF6347] border border-[#FF6347]/30 bg-[#FF6347]/10"
                 >
                   {kw[lang]}
                 </span>
@@ -144,15 +144,15 @@ function DocumentViewer({
             </div>
           )}
           {doc.learnings && (
-            <p className="text-[#F0F0F0] leading-relaxed">{doc.learnings[lang]}</p>
+            <p className="text-[#E7EEF5] leading-relaxed">{doc.learnings[lang]}</p>
           )}
         </div>
       )}
 
       {/* Chart */}
       {doc.chartData && doc.chartData.length > 0 && (
-        <div className="bg-[#222224] border border-[#333336] rounded-xl p-6">
-          <div className="font-mono text-xs text-[#88888E] mb-6">
+        <div className="bg-[#14171C] border border-[#232830] rounded-xl p-6">
+          <div className="font-mono text-xs text-[#6E7E90] mb-6">
             {doc.chartLabel?.[lang]} TREND
           </div>
           <ResponsiveContainer width="100%" height={220}>
@@ -162,8 +162,8 @@ function DocumentViewer({
             >
               <defs>
                 <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#3B82F6" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#3B82F6" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#FF6347" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="#FF6347" stopOpacity={0} />
                 </linearGradient>
                 <linearGradient
                   id="areaGradient2"
@@ -172,37 +172,37 @@ function DocumentViewer({
                   x2="0"
                   y2="1"
                 >
-                  <stop offset="5%" stopColor="#F59E0B" stopOpacity={0.2} />
-                  <stop offset="95%" stopColor="#F59E0B" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#4682B4" stopOpacity={0.2} />
+                  <stop offset="95%" stopColor="#4682B4" stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#333336" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#232830" />
               <XAxis
                 dataKey="month"
-                tick={{ fill: "#88888E", fontSize: 11, fontFamily: "monospace" }}
+                tick={{ fill: "#6E7E90", fontSize: 11, fontFamily: "monospace" }}
                 axisLine={false}
                 tickLine={false}
               />
               <YAxis
-                tick={{ fill: "#88888E", fontSize: 11, fontFamily: "monospace" }}
+                tick={{ fill: "#6E7E90", fontSize: 11, fontFamily: "monospace" }}
                 axisLine={false}
                 tickLine={false}
               />
               <Tooltip
                 contentStyle={{
-                  backgroundColor: "#2A2A2D",
-                  border: "1px solid #333336",
+                  backgroundColor: "#191C21",
+                  border: "1px solid #232830",
                   borderRadius: "8px",
-                  color: "#F0F0F0",
+                  color: "#E7EEF5",
                   fontSize: "12px",
                   fontFamily: "monospace",
                 }}
-                cursor={{ stroke: "#3B82F6", strokeWidth: 1 }}
+                cursor={{ stroke: "#FF6347", strokeWidth: 1 }}
               />
               <Area
                 type="monotone"
                 dataKey="value"
-                stroke="#3B82F6"
+                stroke="#FF6347"
                 strokeWidth={2}
                 fill="url(#areaGradient)"
                 dot={false}
@@ -211,7 +211,7 @@ function DocumentViewer({
                 <Area
                   type="monotone"
                   dataKey="secondary"
-                  stroke="#F59E0B"
+                  stroke="#4682B4"
                   strokeWidth={2}
                   fill="url(#areaGradient2)"
                   dot={false}
@@ -224,8 +224,8 @@ function DocumentViewer({
 
       {/* Attachments */}
       {doc.attachments && doc.attachments.length > 0 && (
-        <div className="bg-[#222224] border border-[#333336] rounded-xl p-6">
-          <div className="font-mono text-xs text-[#88888E] mb-4">ATTACHMENTS</div>
+        <div className="bg-[#14171C] border border-[#232830] rounded-xl p-6">
+          <div className="font-mono text-xs text-[#6E7E90] mb-4">ATTACHMENTS</div>
           <div className="flex flex-wrap gap-4">
             {doc.attachments.map((file) => (
               <a
@@ -240,10 +240,10 @@ function DocumentViewer({
                   <img
                     src={file.thumbnail}
                     alt={file.label}
-                    className="w-full rounded-lg border border-[#333336] group-hover:border-[#3B82F6]/50 transition-colors"
+                    className="w-full rounded-lg border border-[#232830] group-hover:border-[#FF6347]/50 transition-colors"
                   />
                 ) : null}
-                <span className="font-mono text-xs text-[#3B82F6] group-hover:text-[#60A5FA] transition-colors">
+                <span className="font-mono text-xs text-[#FF6347] group-hover:text-[#FF8569] transition-colors">
                   {file.label} ↓
                 </span>
               </a>
@@ -275,7 +275,7 @@ export default function ProjectDetail({
   return (
     <div className="flex flex-col gap-8">
       {/* Tab switcher */}
-      <div className="flex items-center gap-1 bg-[#222224] border border-[#333336] rounded-lg p-1 w-fit">
+      <div className="flex items-center gap-1 bg-[#14171C] border border-[#232830] rounded-lg p-1 w-fit">
         {(
           [
             { key: "sandbox", label: "Sandbox Viewer" },
@@ -287,14 +287,14 @@ export default function ProjectDetail({
             onClick={() => setActiveTab(tab.key)}
             className={`relative font-mono text-xs px-4 py-2 rounded transition-colors ${
               activeTab === tab.key
-                ? "text-[#F0F0F0]"
-                : "text-[#88888E] hover:text-[#F0F0F0]"
+                ? "text-[#E7EEF5]"
+                : "text-[#6E7E90] hover:text-[#E7EEF5]"
             }`}
           >
             {activeTab === tab.key && (
               <motion.div
                 layoutId="tab-indicator"
-                className="absolute inset-0 bg-[#2A2A2D] border border-[#3B82F6]/30 rounded"
+                className="absolute inset-0 bg-[#191C21] border border-[#FF6347]/30 rounded"
                 transition={{ duration: 0.2 }}
               />
             )}
