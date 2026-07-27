@@ -68,6 +68,24 @@ const components: MDXComponents = {
     />
   ),
   hr: () => <hr className="my-8" style={{ borderColor: "#1a2129" }} />,
+  table: ({ children }) => (
+    <table className="w-full text-sm mb-6 border-collapse" style={{ color: "#c9d9e6" }}>
+      {children}
+    </table>
+  ),
+  th: ({ children }) => (
+    <th
+      className="font-mono text-left px-3 py-2 border-b"
+      style={{ color: "#eaf1f8", borderColor: "#1a2129" }}
+    >
+      {children}
+    </th>
+  ),
+  td: ({ children }) => (
+    <td className="px-3 py-2 border-b" style={{ borderColor: "#1a2129" }}>
+      {children}
+    </td>
+  ),
 };
 
 export function useMDXComponents(): MDXComponents {
