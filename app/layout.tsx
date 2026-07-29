@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import Script from "next/script";
 import "./globals.css";
 import { LangProvider } from "@/components/LangProvider";
 import LangToggle from "@/components/LangToggle";
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -23,6 +26,19 @@ export default function RootLayout({
   return (
     <html lang="ko" className={`${geistMono.variable} h-full`}>
       <body className="min-h-full flex flex-col">
+        {GA_ID && (
+          <>
+            <Script src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`} strategy="afterInteractive" />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
         <LangProvider>
           {/* Nav */}
           <nav
