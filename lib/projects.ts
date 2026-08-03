@@ -63,11 +63,13 @@ export const projects: Project[] = [
         ko:
           "Problem: 구직자는 자신의 경험이 특정 공고(JD)에 얼마나 부합하는지 객관적으로 판단하기 어렵고, 공고마다 이력서를 다시 손보는 데 많은 시간이 든다. 초기에는 \"이력서 작성 도구\"로 기획했지만, 시장에 이미 비슷한 도구가 많아 차별성이 부족하다고 판단해 방향을 다시 잡음.\n\n" +
           "Solution: 포지셔닝을 \"지원 전략까지 판단해주는 AI\"로 재정의. JD와 이력서를 비교해 Fit Score를 근거·리스크와 함께 제시하고, 지원/보류/비추천까지 결정해주는 Decision Engine을 핵심 기능으로 두었음. 사용자 흐름도 JD 입력 → 이력서 업로드 → 결과 확인 3단계로 단순화하고, 경험을 기업이 쓰는 언어로 번역한 맞춤 이력서 문구를 함께 생성하도록 MVP 범위를 좁힘.\n\n" +
-          "Result: Next.js 기반으로 실제 배포해 누구나 써볼 수 있는 상태로 완성. 이력서 분석부터 면접 예상 질문까지 한 흐름에서 제공하는 올인원 코파일럿으로 구현.",
+          "이후 '지원 시뮬레이션' 탭을 추가 — Hugging Face의 NVIDIA Nemotron-Personas-Korea 데이터셋에서 산업·아키타입 필터링된 한국인 페르소나와 사용자 프로필을 비교하고, 국민연금(NPS) 실제 고용 데이터로 타겟 기업의 채용 신호를 함께 제시함. NPS 데이터 특성상 계열사·하청이 중복될 수 있어 후보 기업 목록을 UI에 노출해 사용자가 직접 선택하도록 설계.\n\n" +
+          "Result: Next.js 기반으로 실제 배포해 누구나 써볼 수 있는 상태로 완성. 이력서 분석부터 면접 예상 질문, 실제 데이터 기반 지원 시뮬레이션까지 한 흐름에서 제공하는 올인원 코파일럿으로 구현.",
         en:
           "Problem: Job seekers struggle to objectively judge how well their experience matches a given job description, and rewriting a resume for every posting eats up huge amounts of time. Originally scoped as a plain \"resume writing tool,\" but the market was already crowded with similar tools, so the positioning had to change.\n\n" +
           "Solution: Repositioned it as \"AI that decides your application strategy, not just your wording.\" The core feature became a Decision Engine that compares the JD against the resume, surfaces a Fit Score with supporting evidence and risks, and recommends apply / hold / skip. Simplified the user flow to three steps — paste JD → upload resume → see results — and narrowed the MVP to also generate resume bullets translated into the language employers actually use.\n\n" +
-          "Result: Shipped on Next.js as a real, usable deployment. Built as an all-in-one copilot covering everything from resume analysis to likely interview questions in a single flow.",
+          "Later added an Application Simulation tab — compares the user's profile against Korean persona archetypes sourced from Hugging Face's NVIDIA Nemotron-Personas-Korea dataset (filtered by industry and archetype), and cross-references real National Pension Service (NPS) enrollment data to surface actual hiring signals for the target company. Because NPS data can be ambiguous across subsidiaries, the UI surfaces the full candidate company list for the user to select rather than guessing silently.\n\n" +
+          "Result: Shipped on Next.js as a real, usable deployment. Built as an all-in-one copilot covering resume analysis, likely interview questions, and data-driven application simulation in a single flow.",
       },
       kpis: [
         {
@@ -274,7 +276,7 @@ export const projects: Project[] = [
         },
         {
           label: { ko: "세미나 참여", en: "Seminar turnout" },
-          value: { ko: "100명+", en: "100+" },
+          value: { ko: "50명+", en: "50+" },
           delta: { ko: "CITO 콜라보", en: "CITO collab" },
           positive: true,
         },
