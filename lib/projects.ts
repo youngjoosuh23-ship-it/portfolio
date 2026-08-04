@@ -359,6 +359,7 @@ export const projects: Project[] = [
         {
           label: "ISA Running Crew 기획안 (PDF)",
           url: "/resume/isa-running-crew-v6.pdf",
+          thumbnail: "/resume/isa-running-crew-thumb.png",
         },
       ],
     },
