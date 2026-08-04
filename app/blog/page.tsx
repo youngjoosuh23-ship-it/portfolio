@@ -5,7 +5,7 @@ export default async function BlogPage() {
   const posts = await getAllPosts();
 
   return (
-    <main className="px-6 py-8 max-w-3xl mx-auto w-full min-h-[calc(100vh-2.5rem)] flex flex-col gap-8">
+    <main className="px-6 py-8 max-w-5xl mx-auto w-full min-h-[calc(100vh-2.5rem)] flex flex-col gap-8">
       <header className="flex flex-col gap-2">
         <h1
           className="font-mono text-3xl md:text-4xl font-bold tracking-tight"
@@ -18,7 +18,7 @@ export default async function BlogPage() {
         </p>
       </header>
 
-      <div className="flex flex-col gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {posts.length === 0 ? (
           <div
             className="font-mono text-[11px] py-8 text-center border border-dashed rounded-2xl"
