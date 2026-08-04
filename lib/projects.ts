@@ -18,6 +18,12 @@ export type ChartPoint = {
   secondary?: number;
 };
 
+export type DecisionEntry = {
+  problem: L;
+  decision: L;
+  outcome: L;
+};
+
 export type Project = {
   slug: string;
   index?: string;
@@ -34,8 +40,7 @@ export type Project = {
     title: L;
     overview: L;
     kpis: KPI[];
-    chartData?: ChartPoint[];
-    chartLabel?: L;
+    decisionLog?: DecisionEntry[];
     attachments?: { label: string; url: string; thumbnail?: string }[];
     keywords?: L[];
     learnings?: L;
@@ -97,15 +102,50 @@ export const projects: Project[] = [
           positive: true,
         },
       ],
-      chartData: [
-        { month: "Jan", value: 120 },
-        { month: "Feb", value: 280 },
-        { month: "Mar", value: 450 },
-        { month: "Apr", value: 680 },
-        { month: "May", value: 920 },
-        { month: "Jun", value: 1200 },
+      decisionLog: [
+        {
+          problem: {
+            ko: "이력서 작성 도구로 기획했지만 시장에 비슷한 툴이 이미 넘쳤다.",
+            en: "Originally scoped as a resume writing tool, but the market was already flooded with similar products.",
+          },
+          decision: {
+            ko: "\"지원 여부까지 판단해주는 AI\"로 포지셔닝 재정의. 단순 문구 개선이 아닌 Fit Score + 지원/보류/비추천 Decision Engine을 핵심으로.",
+            en: "Repositioned as \"AI that decides your application strategy.\" Made the Fit Score + apply/hold/skip Decision Engine the core, not just rewriting bullets.",
+          },
+          outcome: {
+            ko: "차별점이 생겼고 사용자 흐름도 JD 입력 → 이력서 업로드 → 결과 확인 3단계로 단순해졌다.",
+            en: "Created a clear differentiator and simplified the user flow to three steps: paste JD → upload resume → see results.",
+          },
+        },
+        {
+          problem: {
+            ko: "지원 시뮬레이션에 쓸 한국인 구직자 페르소나 데이터가 없었다.",
+            en: "No Korean job-seeker persona data was available for the application simulation feature.",
+          },
+          decision: {
+            ko: "Hugging Face의 NVIDIA Nemotron-Personas-Korea 데이터셋을 산업·아키타입 필터로 가져와 사용자 프로필과 비교하도록 설계.",
+            en: "Used the NVIDIA Nemotron-Personas-Korea dataset from Hugging Face, filtered by industry and archetype, to compare against the user's profile.",
+          },
+          outcome: {
+            ko: "실제 데이터 기반 시뮬레이션이 가능해졌고, 샘플이 부족한 산업은 솔직하게 fallback 메시지를 노출하도록 처리했다.",
+            en: "Enabled real-data-backed simulation. For industries with sparse samples, the UI surfaces an honest fallback message instead of guessing.",
+          },
+        },
+        {
+          problem: {
+            ko: "국민연금(NPS) 데이터로 기업 채용 신호를 보여주려 했는데, 계열사·하청이 같은 이름 substring을 공유해 어떤 법인인지 특정이 불가능했다.",
+            en: "NPS enrollment data was ambiguous — subsidiaries and subcontractors share name substrings, making it impossible to identify the exact legal entity.",
+          },
+          decision: {
+            ko: "백엔드나 LLM이 임의로 선택하지 않고, 후보 기업 목록을 UI에 그대로 노출해 사용자가 직접 선택하도록 설계.",
+            en: "Instead of having the backend or LLM guess silently, surfaced the full candidate company list in the UI and let the user pick.",
+          },
+          outcome: {
+            ko: "잘못된 기업 데이터를 보여주는 오류를 원천 차단했고, 애매함 자체를 투명하게 드러내는 UX가 됐다.",
+            en: "Eliminated the risk of showing wrong company data, and turned the ambiguity into a transparent UX choice rather than a hidden bug.",
+          },
+        },
       ],
-      chartLabel: { ko: "누적 사용자", en: "Cumulative users" },
     },
   },
   {
@@ -160,11 +200,36 @@ export const projects: Project[] = [
           positive: true,
         },
       ],
-      chartData: [
-        { month: "May", value: 11 },
-        { month: "Jun", value: 9 },
+      decisionLog: [
+        {
+          problem: {
+            ko: "지도에 체크인한 사용자를 보여줄 때 '지금 여기 있는 사람'이라는 맥락이 사라지면 앱의 핵심 가치가 없어진다.",
+            en: "If the 'here right now' context disappears from check-ins, the core value of the app disappears with it.",
+          },
+          decision: {
+            ko: "체크인 TTL을 1시간으로 설정. 영구 표시나 수동 삭제가 아닌, 시간이 지나면 자동으로 사라지는 구조로 설계.",
+            en: "Set check-in TTL to 1 hour. Designed it to expire automatically rather than persist permanently or require manual removal.",
+          },
+          outcome: {
+            ko: "'지금 이 장소에 있다'는 신뢰도가 유지됐고, 오래된 체크인이 쌓여 지도가 오염되는 문제를 원천 방지했다.",
+            en: "Preserved the credibility of 'here right now,' and prevented the map from getting polluted with stale check-ins.",
+          },
+        },
+        {
+          problem: {
+            ko: "초기 서비스라 지도에 보여줄 콘텐츠(장소, 이벤트)가 없었다. 사용자가 없으니 콘텐츠도 없고, 콘텐츠가 없으니 사용자도 안 오는 cold start 문제.",
+            en: "As an early product, there was no content to show on the map. No users meant no content, and no content meant no users — classic cold start.",
+          },
+          decision: {
+            ko: "한국관광공사·문화정보원 공공 API를 연동해 지도에 장소·이벤트 데이터를 채움. 사용자 생성 콘텐츠가 생기기 전까지의 공백을 공공 데이터로 메움.",
+            en: "Integrated Korea Tourism Organization and Korea Culture Information Service public APIs to populate the map with places and events, bridging the gap before user-generated content could accumulate.",
+          },
+          outcome: {
+            ko: "첫 방문자가 빈 지도를 보는 상황을 피할 수 있었고, 앱의 초기 유용성을 확보했다.",
+            en: "Avoided showing first-time visitors an empty map, and established baseline usefulness for the app before organic content existed.",
+          },
+        },
       ],
-      chartLabel: { ko: "월별 커밋 수", en: "Monthly commits" },
     },
   },
   {
@@ -218,7 +283,6 @@ export const projects: Project[] = [
           positive: true,
         },
       ],
-      chartLabel: { ko: "DB 테이블: hcps · interactions · compliance_records", en: "DB tables: hcps · interactions · compliance_records" },
       keywords: [
         { ko: "HCP 관리", en: "HCP management" },
         { ko: "컴플라이언스", en: "Compliance" },

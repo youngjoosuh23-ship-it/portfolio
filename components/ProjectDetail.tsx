@@ -2,15 +2,6 @@
 
 import { useState, type ReactNode } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
 import type { Project } from "@/lib/projects";
 import { useLang } from "@/components/LangProvider";
 
@@ -149,76 +140,28 @@ function DocumentViewer({
         </div>
       )}
 
-      {/* Chart */}
-      {doc.chartData && doc.chartData.length > 0 && (
-        <div className="bg-[#14171C] border border-[#232830] rounded-xl p-6">
-          <div className="font-mono text-xs text-[#6E7E90] mb-6">
-            {doc.chartLabel?.[lang]} TREND
+      {/* Decision Log */}
+      {doc.decisionLog && doc.decisionLog.length > 0 && (
+        <div>
+          <div className="font-mono text-xs text-[#6E7E90] mb-4">DECISION LOG</div>
+          <div className="flex flex-col gap-3">
+            {doc.decisionLog.map((entry, i) => (
+              <div key={i} className="bg-[#14171C] border border-[#232830] rounded-xl overflow-hidden">
+                <div className="flex items-start gap-3 px-5 py-4 border-b border-[#232830]">
+                  <span className="font-mono text-[10px] text-[#EF4444] mt-0.5 shrink-0">PROBLEM</span>
+                  <p className="text-sm text-[#A0B0C0] leading-relaxed">{entry.problem[lang]}</p>
+                </div>
+                <div className="flex items-start gap-3 px-5 py-4 border-b border-[#232830]">
+                  <span className="font-mono text-[10px] text-[#FF6347] mt-0.5 shrink-0">DECISION</span>
+                  <p className="text-sm text-[#E7EEF5] leading-relaxed">{entry.decision[lang]}</p>
+                </div>
+                <div className="flex items-start gap-3 px-5 py-4">
+                  <span className="font-mono text-[10px] text-[#10B981] mt-0.5 shrink-0">OUTCOME</span>
+                  <p className="text-sm text-[#A0B0C0] leading-relaxed">{entry.outcome[lang]}</p>
+                </div>
+              </div>
+            ))}
           </div>
-          <ResponsiveContainer width="100%" height={220}>
-            <AreaChart
-              data={doc.chartData}
-              margin={{ top: 4, right: 4, left: -20, bottom: 0 }}
-            >
-              <defs>
-                <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#FF6347" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#FF6347" stopOpacity={0} />
-                </linearGradient>
-                <linearGradient
-                  id="areaGradient2"
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="1"
-                >
-                  <stop offset="5%" stopColor="#4682B4" stopOpacity={0.2} />
-                  <stop offset="95%" stopColor="#4682B4" stopOpacity={0} />
-                </linearGradient>
-              </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#232830" />
-              <XAxis
-                dataKey="month"
-                tick={{ fill: "#6E7E90", fontSize: 11, fontFamily: "monospace" }}
-                axisLine={false}
-                tickLine={false}
-              />
-              <YAxis
-                tick={{ fill: "#6E7E90", fontSize: 11, fontFamily: "monospace" }}
-                axisLine={false}
-                tickLine={false}
-              />
-              <Tooltip
-                contentStyle={{
-                  backgroundColor: "#191C21",
-                  border: "1px solid #232830",
-                  borderRadius: "8px",
-                  color: "#E7EEF5",
-                  fontSize: "12px",
-                  fontFamily: "monospace",
-                }}
-                cursor={{ stroke: "#FF6347", strokeWidth: 1 }}
-              />
-              <Area
-                type="monotone"
-                dataKey="value"
-                stroke="#FF6347"
-                strokeWidth={2}
-                fill="url(#areaGradient)"
-                dot={false}
-              />
-              {doc.chartData[0].secondary !== undefined && (
-                <Area
-                  type="monotone"
-                  dataKey="secondary"
-                  stroke="#4682B4"
-                  strokeWidth={2}
-                  fill="url(#areaGradient2)"
-                  dot={false}
-                />
-              )}
-            </AreaChart>
-          </ResponsiveContainer>
         </div>
       )}
 
