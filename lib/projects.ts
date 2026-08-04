@@ -355,6 +355,12 @@ export const projects: Project[] = [
         ko: "한정된 리소스와 일정 안에서 여러 부서의 업무를 조율하고, 참여자 수 변화 같은 데이터를 보며 활동을 지속적으로 개선하는 법을 배움.",
         en: "Learned to coordinate work across departments under limited resources and timelines, and to keep improving activities by watching data like participation trends.",
       },
+      attachments: [
+        {
+          label: "ISA Running Crew 기획안 (PDF)",
+          url: "/resume/isa-running-crew-v6.pdf",
+        },
+      ],
     },
   },
   {
