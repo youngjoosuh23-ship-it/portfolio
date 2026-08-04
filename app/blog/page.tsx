@@ -34,14 +34,12 @@ export default async function BlogPage() {
               className="block rounded-xl border p-5 transition-colors hover:bg-[#ff634708]"
               style={{ borderColor: "#1a2129" }}
             >
-              <div className="flex items-center justify-between mb-1">
-                <h2 className="font-mono text-base font-bold" style={{ color: "#eaf1f8" }}>
-                  {post.title}
-                </h2>
-                <span className="font-mono text-[10px] tracking-widest" style={{ color: "#51687d" }}>
-                  {post.date}
-                </span>
-              </div>
+              <h2 className="font-mono text-base font-bold mb-1" style={{ color: "#eaf1f8" }}>
+                {post.title}
+              </h2>
+              <span className="font-mono text-[10px] tracking-widest mb-2 block" style={{ color: "#51687d" }}>
+                {post.date}
+              </span>
               {post.summary && (
                 <p className="font-mono text-[12px] leading-relaxed" style={{ color: "#51687d" }}>
                   {post.summary}
