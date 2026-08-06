@@ -14,7 +14,7 @@ export default function Home() {
             Youngjoo Suh
           </h1>
           <p className="font-mono text-xs md:text-sm tracking-wide" style={{ color: "#7c97b0" }}>
-            Building ideas around people, experiences, and AI.
+            Building ideas around biotech, AI, and global teams.
           </p>
 
           {/* Contact */}

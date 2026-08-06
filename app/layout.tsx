@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Youngjoo Suh",
-  description: "Building ideas around people, experiences, and AI.",
+  description: "Building ideas around biotech, AI, and global teams.",
 };
 
 export default function RootLayout({
@@ -62,6 +62,9 @@ export default function RootLayout({
                 </Link>
                 <Link href="/blog" className="font-mono text-xs tracking-[0.3em] transition-colors hover:text-[#eaf1f8]" style={{ color: "#7c97b0" }}>
                   BLOG
+                </Link>
+                <Link href="/ideas" className="font-mono text-xs tracking-[0.3em] transition-colors hover:text-[#eaf1f8]" style={{ color: "#7c97b0" }}>
+                  IDEAS
                 </Link>
               </div>
               <div className="flex items-center gap-4">
