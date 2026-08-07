@@ -1,0 +1,96 @@
+export const metadata = {
+  title: "Go-to-market strategy for a new market entry, built from competitor medical device manual analysis",
+  date: "2026-07-27",
+  summary: "A case study analyzing 2,694 global medical device manuals through a 4P framework and a 5-stage GTM process, to design market-entry positioning for a new continuous glucose monitor (CGM).",
+};
+
+> **Context**: A project assuming the role of marketing lead for a continuous glucose monitor (CGM) at a hypothetical medical device company, building a data-driven market-entry positioning and sales strategy for the new product.
+
+## Executive Summary
+
+Analyzed 2,694 global medical device instructions for use (IFUs) to benchmark competitors' safety levels and marketing language, then converted that into GTM (go-to-market) positioning and sales messaging for the new product. The core move is "translating regulatory data into sales language" — turning dry regulatory metrics like device class and warning/caution counts into safety and convenience copy that HCPs (healthcare providers) actually feel.
+
+## 1. Market-entry strategy through the 4Ps
+
+### Product
+A CGM isn't a simple glucose meter — it sells a "continuous data stream." Analyzing competitor manuals shows that warning-statement counts and contraindications relative to Class II/III devices act as a proxy for product complexity. If our product has fewer Cautions items for the same indication, that fact alone becomes a differentiation point: "reduced risk of use error."
+
+### Price
+Price needs to be reframed not as the device itself but as "annual data-management cost per patient." Where a competitor's manual specifies a consumable (sensor) replacement cycle, working backward from that to build a TCO (total cost of ownership) comparison table can be used directly for reimbursement negotiations and convincing in-hospital purchasing staff.
+
+### Promotion
+An HCP-facing sales kit doesn't quote regulatory language verbatim — it compresses it into numbers. Example: *"30% fewer Cautions items than a competing Class II device — minimizing human error."* Keyword frequency pulled from manual text mining becomes the raw material for the copywriting itself.
+
+### Place
+The initial entry targets large hospitals' endocrinology departments; the secondary wave spreads to regional clinics and pharmacy distribution networks. Regions with regulatory approval (whether a country has a Regulatory Approval ID) become the map for distribution priority.
+
+## 2. The 5-stage GTM process
+
+1. **Global market research & regulatory analysis** — first map entry barriers and classification systems using openFDA and competitor IFU data.
+2. **Local clinical validation & PMF check** — confirm actual usage patterns fit the target patient group (adult/pediatric, diabetes type) via a small-scale clinical study.
+3. **GTM strategy & regulatory approval** — lock in positioning based on stage 1–2 data while pursuing approval in parallel.
+4. **Local partnering & BD execution** — sign with distributors and hospital networks to secure initial reference sites.
+5. **Market establishment & sales expansion** — recycle data from reference sites into the next round of sales material to keep scaling.
+
+## 3. Risk benchmarking from competitor manual data
+
+Below is a sample structure drawn from the openFDA / Kaggle Medical Device Manuals Global Dataset (2,694 records, 16 features). In the actual analysis, three columns — `Number_of_Warnings`, `Number_of_Cautions`, and `Device_Class` — form the core axes of a risk-positioning map (X: ease of use, Y: regulatory risk).
+
+<div style={{ overflowX: "auto" }}>
+<table>
+<thead>
+<tr>
+<th>Device Name</th>
+<th>Model Number</th>
+<th>Device Class</th>
+<th>Warnings</th>
+<th>Cautions</th>
+<th>Sterilization</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CGM Sensor Patch</td>
+<td>CGM-A210</td>
+<td>Class II</td>
+<td>9</td>
+<td>7</td>
+<td>EO Gas</td>
+</tr>
+<tr>
+<td>Competitor Insulin Pump</td>
+<td>DAN246</td>
+<td>Class I</td>
+<td>11</td>
+<td>11</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Competitor CGM Transmitter</td>
+<td>MED-CGX9</td>
+<td>Class II</td>
+<td>14</td>
+<td>13</td>
+<td>Gamma Irradiation</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+*(The table above illustrates the data structure only; the actual project pipeline runs openFDA API extraction → pandas cleaning → aggregation by device class.)*
+
+## 4. Business Recommendations
+
+- **Target**: primary — endocrinologists; secondary — chronic disease management clinics.
+- **Improvement point**: track the correlation between Cautions-item count and actual user-error reports during onboarding, and feed it back into manual improvements.
+- **Value delivery channel**: for a habit-driven device category like CGM, 1:1 demos with in-hospital clinical teams outperform conference booths.
+- **Revenue structure**: shift to a device + sensor subscription model and manage repurchase rate as a sales KPI.
+
+## 5. Next Steps & Limitations
+
+**Limitations**: because the dataset is synthetic, there can be text mismatches between device names and indications, so the analysis was scoped to pattern and keyword structure in regulatory language rather than per-device clinical fact-checking.
+
+**Next Steps**:
+- Score countries by priority for regulatory approval based on which offers the fastest ROI
+- Narrow the MVP to the "smallest sellable unit" and prove early traction with 3 reference sites first
+- A/B test sales-kit copy to verify which risk metrics actually move purchasing decisions

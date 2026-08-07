@@ -1,7 +1,11 @@
 import { projects } from "@/lib/projects";
+import { getAllPostsBilingual } from "@/lib/blog";
 import ProjectGrid from "@/components/ProjectGrid";
+import RotatingWord from "@/components/RotatingWord";
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getAllPostsBilingual();
+
   return (
     <main className="px-6 py-8 max-w-7xl mx-auto w-full min-h-[calc(100vh-2.5rem)] flex flex-col gap-8">
       {/* Header */}
@@ -14,7 +18,7 @@ export default function Home() {
             Youngjoo Suh
           </h1>
           <p className="font-mono text-xs md:text-sm tracking-wide" style={{ color: "#7c97b0" }}>
-            Building ideas around biotech, AI, and global teams.
+            Building ideas around <RotatingWord />.
           </p>
 
           {/* Contact */}
@@ -64,7 +68,7 @@ export default function Home() {
 
       {/* Grid */}
       <div className="flex-1 min-h-0">
-        <ProjectGrid projects={projects} />
+        <ProjectGrid projects={projects} posts={posts} />
       </div>
 
       {/* Footer */}

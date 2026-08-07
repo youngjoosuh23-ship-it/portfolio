@@ -32,7 +32,7 @@ export type Project = {
   description: L;
   tags: string[];
   year: string;
-  type: "ai" | "leadership" | "work";
+  type: "ai" | "work";
   image?: string;
   sandboxUrl: string;
   hasLiveDemo?: boolean;
@@ -292,79 +292,6 @@ export const projects: Project[] = [
     },
   },
   {
-    slug: "isa-leadership",
-    title: "ISA International Student Association",
-    subtitle: {
-      ko: "국제학생회(ISA) 부회장 | 이벤트 기획 팀장 및 마케팅팀",
-      en: "ISA Vice President | Event Planning Lead & Marketing Team",
-    },
-    description: {
-      ko: "4년간 일반 회원에서 부회장으로 성장. 다문화 세미나·러닝크루·교류강좌를 기획·운영하며 캠퍼스 내 다문화 교류 활동을 확대.",
-      en: "Grew from general member to Vice President over four years. Planned and ran multicultural seminars, a running crew, and exchange courses to expand multicultural engagement on campus.",
-    },
-    tags: ["Leadership", "Event Planning", "Marketing", "ISA"],
-    year: "2021–2025",
-    type: "leadership",
-    sandboxUrl: "",
-    hasLiveDemo: false,
-    document: {
-      title: { ko: "ISA International Student Association — 활동 개요", en: "ISA International Student Association — Activity Overview" },
-      overview: {
-        ko:
-          "Problem: 캠퍼스 내의 교류 기회가 제한적이었고, 네트워킹의 장이 부족하다고 느낌. 특히 국제 학생들의 니즈를 충족시키기 위한 활동이 제한적이라고 판단함.\n\n" +
-          "Solution: 4년간 일반 회원 → 이벤트 기획 팀장 → 부회장으로 성장하며, 스웨덴 샬메르스 공과대학 대만 사무소(CITO)와 협업해 50명 이상이 참여하는 다문화 세미나를 기획·운영. 러닝크루 활동 일정과 운영을 현장에서 조정해 참여자를 10명에서 30명으로 확대했고, '다문화 교류 강좌'를 신설해 월간 정기 프로그램으로 발전시킴. 부회장으로서 부서 간 일정 조율·업무 배분을 맡고, Canva로 홍보 콘텐츠를 제작해 참여도를 끌어올림.\n\n" +
-          "Result: 4년 만에 일반 회원에서 부회장으로 성장. 다문화 세미나 100명 이상 참여, 러닝크루 참여자 3배 확대(10명→30명), 신설 강좌의 월간 정기 프로그램화까지 이끌어냄.",
-        en:
-          "Problem: Opportunities for engagement on campus were limited, and I felt there wasn't enough of a networking venue — especially activities aimed at meeting international students' actual needs.\n\n" +
-          "Solution: Grew over four years from general member → event planning lead → Vice President. Partnered with Chalmers University of Technology's Taiwan office (CITO) to plan and run a multicultural seminar with 100+ attendees. Adjusted the running crew's schedule and on-site operations to grow participants from 10 to 30, and launched a new \"multicultural exchange course\" that became a monthly recurring program. As VP, coordinated cross-department scheduling and task allocation, and produced promotional content in Canva to drive participation.\n\n" +
-          "Result: Grew from general member to Vice President in four years. Drove 100+ attendees at the multicultural seminar, tripled running crew participation (10 → 30), and turned the new course into a monthly recurring program.",
-      },
-      kpis: [
-        {
-          label: { ko: "활동 기간", en: "Duration" },
-          value: { ko: "4년", en: "4 years" },
-          delta: { ko: "2021–2025", en: "2021–2025" },
-          positive: true,
-        },
-        {
-          label: { ko: "직책", en: "Role" },
-          value: { ko: "부회장", en: "Vice President" },
-          delta: { ko: "일반회원 → 팀장 → 부회장", en: "Member → Lead → VP" },
-          positive: true,
-        },
-        {
-          label: { ko: "러닝크루 확대", en: "Running crew growth" },
-          value: { ko: "10명 → 30명", en: "10 → 30 members" },
-          delta: { ko: "3배 성장", en: "3x growth" },
-          positive: true,
-        },
-        {
-          label: { ko: "세미나 참여", en: "Seminar turnout" },
-          value: { ko: "50명+", en: "50+" },
-          delta: { ko: "CITO 콜라보", en: "CITO collab" },
-          positive: true,
-        },
-      ],
-      keywords: [
-        { ko: "이벤트 기획", en: "Event planning" },
-        { ko: "부서 간 일정 조율", en: "Cross-team scheduling" },
-        { ko: "홍보 콘텐츠 제작", en: "Promotional content" },
-        { ko: "다문화 커뮤니케이션", en: "Cross-cultural communication" },
-      ],
-      learnings: {
-        ko: "한정된 리소스와 일정 안에서 여러 부서의 업무를 조율하고, 참여자 수 변화 같은 데이터를 보며 활동을 지속적으로 개선하는 법을 배움.",
-        en: "Learned to coordinate work across departments under limited resources and timelines, and to keep improving activities by watching data like participation trends.",
-      },
-      attachments: [
-        {
-          label: "ISA Running Crew 기획안 (PDF)",
-          url: "/resume/isa-running-crew-v6.pdf",
-          thumbnail: "/resume/isa-running-crew-thumb.png",
-        },
-      ],
-    },
-  },
-  {
     slug: "itri-internship",
     title: "ITRI Lab Intern",
     subtitle: {
@@ -497,6 +424,79 @@ export const projects: Project[] = [
         ko: "정해진 문법 진도가 아니라 수강생이 실제로 원하는 목표(회화 능력)를 먼저 파악하고 학습 방식을 거꾸로 설계하는 법을 배움. 3년간 같은 수강생을 가르치며 꾸준한 피드백 루프로 관계를 유지하고 성장시키는 역량을 길렀음.",
         en: "Learned to identify what a student actually wants (conversational ability) before a fixed grammar syllabus, and design the lesson backward from that goal. Teaching the same student for three years built the ability to sustain a relationship and keep them growing through a steady feedback loop.",
       },
+    },
+  },
+  {
+    slug: "isa-leadership",
+    title: "ISA International Student Association",
+    subtitle: {
+      ko: "국제학생회(ISA) 부회장 | 이벤트 기획 팀장 및 마케팅팀",
+      en: "ISA Vice President | Event Planning Lead & Marketing Team",
+    },
+    description: {
+      ko: "4년간 일반 회원에서 부회장으로 성장. 다문화 세미나·러닝크루·교류강좌를 기획·운영하며 캠퍼스 내 다문화 교류 활동을 확대.",
+      en: "Grew from general member to Vice President over four years. Planned and ran multicultural seminars, a running crew, and exchange courses to expand multicultural engagement on campus.",
+    },
+    tags: ["Leadership", "Event Planning", "Marketing", "ISA"],
+    year: "2021–2025",
+    type: "work",
+    sandboxUrl: "",
+    hasLiveDemo: false,
+    document: {
+      title: { ko: "ISA International Student Association — 활동 개요", en: "ISA International Student Association — Activity Overview" },
+      overview: {
+        ko:
+          "Problem: 캠퍼스 내의 교류 기회가 제한적이었고, 네트워킹의 장이 부족하다고 느낌. 특히 국제 학생들의 니즈를 충족시키기 위한 활동이 제한적이라고 판단함.\n\n" +
+          "Solution: 4년간 일반 회원 → 이벤트 기획 팀장 → 부회장으로 성장하며, 스웨덴 샬메르스 공과대학 대만 사무소(CITO)와 협업해 50명 이상이 참여하는 다문화 세미나를 기획·운영. 러닝크루 활동 일정과 운영을 현장에서 조정해 참여자를 10명에서 30명으로 확대했고, '다문화 교류 강좌'를 신설해 월간 정기 프로그램으로 발전시킴. 부회장으로서 부서 간 일정 조율·업무 배분을 맡고, Canva로 홍보 콘텐츠를 제작해 참여도를 끌어올림.\n\n" +
+          "Result: 4년 만에 일반 회원에서 부회장으로 성장. 다문화 세미나 100명 이상 참여, 러닝크루 참여자 3배 확대(10명→30명), 신설 강좌의 월간 정기 프로그램화까지 이끌어냄.",
+        en:
+          "Problem: Opportunities for engagement on campus were limited, and I felt there wasn't enough of a networking venue — especially activities aimed at meeting international students' actual needs.\n\n" +
+          "Solution: Grew over four years from general member → event planning lead → Vice President. Partnered with Chalmers University of Technology's Taiwan office (CITO) to plan and run a multicultural seminar with 100+ attendees. Adjusted the running crew's schedule and on-site operations to grow participants from 10 to 30, and launched a new \"multicultural exchange course\" that became a monthly recurring program. As VP, coordinated cross-department scheduling and task allocation, and produced promotional content in Canva to drive participation.\n\n" +
+          "Result: Grew from general member to Vice President in four years. Drove 100+ attendees at the multicultural seminar, tripled running crew participation (10 → 30), and turned the new course into a monthly recurring program.",
+      },
+      kpis: [
+        {
+          label: { ko: "활동 기간", en: "Duration" },
+          value: { ko: "4년", en: "4 years" },
+          delta: { ko: "2021–2025", en: "2021–2025" },
+          positive: true,
+        },
+        {
+          label: { ko: "직책", en: "Role" },
+          value: { ko: "부회장", en: "Vice President" },
+          delta: { ko: "일반회원 → 팀장 → 부회장", en: "Member → Lead → VP" },
+          positive: true,
+        },
+        {
+          label: { ko: "러닝크루 확대", en: "Running crew growth" },
+          value: { ko: "10명 → 30명", en: "10 → 30 members" },
+          delta: { ko: "3배 성장", en: "3x growth" },
+          positive: true,
+        },
+        {
+          label: { ko: "세미나 참여", en: "Seminar turnout" },
+          value: { ko: "50명+", en: "50+" },
+          delta: { ko: "CITO 콜라보", en: "CITO collab" },
+          positive: true,
+        },
+      ],
+      keywords: [
+        { ko: "이벤트 기획", en: "Event planning" },
+        { ko: "부서 간 일정 조율", en: "Cross-team scheduling" },
+        { ko: "홍보 콘텐츠 제작", en: "Promotional content" },
+        { ko: "다문화 커뮤니케이션", en: "Cross-cultural communication" },
+      ],
+      learnings: {
+        ko: "한정된 리소스와 일정 안에서 여러 부서의 업무를 조율하고, 참여자 수 변화 같은 데이터를 보며 활동을 지속적으로 개선하는 법을 배움.",
+        en: "Learned to coordinate work across departments under limited resources and timelines, and to keep improving activities by watching data like participation trends.",
+      },
+      attachments: [
+        {
+          label: "ISA Running Crew 기획안 (PDF)",
+          url: "/resume/isa-running-crew-v6.pdf",
+          thumbnail: "/resume/isa-running-crew-thumb.png",
+        },
+      ],
     },
   },
 ];

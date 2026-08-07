@@ -1,0 +1,71 @@
+export const metadata = {
+  title: "Career Copilot, next steps: from onboarding automation to an enterprise talent asset map",
+  date: "2026-07-27",
+  summary: "A plan to expand a personal career-management dashboard into an enterprise project-management service — onboarding, automation agents, and a B2B talent asset map.",
+};
+
+I sketched out how far Career Copilot could go if pushed past a resume-analysis tool. It splits into two axes: a daily career-management dashboard for individuals, and a project-management service that extends that same data to companies.
+
+## 1. Personal career management
+
+### Onboarding flow
+
+If the first screen doesn't diagnose the problem, people leave. A few questions — student status, whether they have a resume, area of interest, employment status, goals, current pain points — instantly place the user.
+
+1. **Diagnose status** — classify the user from the questions above
+2. **Generate a personalized roadmap** — AI proposes a step-by-step plan on the spot and refines it
+3. **Spin up a personal dashboard** — the roadmap flows straight into the dashboard
+
+The result (the roadmap) has to appear the moment the questions are answered, or onboarding drop-off follows.
+
+### Dashboard features
+
+The goal isn't "get hired" — it's "get hired + manage a career." Tracking and visualization are the core.
+
+**AI agents & automation** — an automation layer that keeps preparation moving even while the user sleeps.
+
+- **AI job curation**: an agent crawls job boards daily, scores postings against the resume, and marks each APPLY / SKIP / REVISIT, auto-adding them to a calendar
+- **Daily guardrails**: every morning, assigns a personalized to-do list — news in the user's field, company analysis reports, cover-letter review
+
+**Tools & analytics**
+
+- **Live portfolio builder**: no separate portfolio to build — everything logged in the dashboard converts automatically into a web/PDF portfolio, effectively a "career asset vault"
+- **Application history management**: stores analysis records and application history, visualizing pass-rate trends
+- **Folder-based archiving**: organizes analysis results and reports systematically for at-a-glance review
+- **Continuous feedback loop**: AI analyzes weaknesses based on application outcomes and re-proposes the roadmap in real time
+
+### Job scraping has to kill friction first
+
+Even automated curation ultimately needs the user to feed in postings. Three stages for cutting that friction:
+
+1. **Simplest version**: "select-all (Ctrl+A) the posting and paste it in" — ships with zero extra dev work
+2. **Browser extension**: while on a job board like JobKorea or Saramin, an "Analyze with Career Copilot" button appears alongside the page, and one click sends the current page's data over — no URL copying needed
+3. **User data becomes an asset**: store each user's analyzed postings in a DB (e.g., Airtable), so when another user searches the same company, the already-analyzed data shows up instantly. Over time this builds a proprietary "job posting DB" that can be repackaged into content like "Top 10 postings other job seekers viewed" for marketing.
+
+## 2. Enterprise project management
+
+The individual-facing features alone don't escape complaint risk like "give me a refund, I didn't get hired." Pursuing both self-branding tools and revenue diversification requires expanding into B2B.
+
+- **B2C**: personal career asset management and automatic portfolio generation (monthly subscription)
+- **B2B**: verifying applicants' work contributions, viewing career reports (per-view fee or enterprise dashboard sales)
+
+The core piece is a **Talent Asset Map** — a map for understanding employees' tendencies and placing them where they fit best.
+
+### Benefit to individuals
+
+Projects handled, tasks contributed to, and other things worth highlighting get logged to the dashboard in real time. No need to rack your brain rewriting a resume — the portfolio builds itself continuously.
+
+### Benefit to companies
+
+When a company registers a project on its own profile, it automatically links to the personal profiles of everyone who worked on it. When an individual posts their portfolio link alongside colleagues' links, each portfolio gets issued a verification mark. Employees end up with a "company-certified career path," and that certification becomes leverage in salary negotiations when they move on.
+
+What companies get out of it:
+- Real-time visibility into project progress and bottlenecks
+- Stage-by-stage progress and contribution tracking, useful for retaining key talent
+- Portfolio-based hiring prediction that cuts the cost of bad hires — ultimately, this is why companies would pay for it
+
+### Experience data, not evaluation
+
+The moment this service becomes an "evaluation tool," employees push back. So the design principle is a factual record of "what experience was accumulated," not "evaluation." Instead of evaluation, the focus is **role-fit matching** — when a new project opens up, AI cross-references the interests and past activity individuals have already logged to match "who's the right person for this." This assumes an increasing shift toward taking on work per-project rather than per-team.
+
+It also weighs in **personal identity data**. When an employee inputs things like "I perform better focused alone than collaborating" or "I enjoy mediating conflict," AI analyzes it into a report. Instead of unilaterally evaluating the employee, the company gets a guide to understanding that person's tendencies and how to communicate with them.

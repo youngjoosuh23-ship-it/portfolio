@@ -1,0 +1,96 @@
+export const metadata = {
+  title: "Matcha — a location-based loose-connection service PRD",
+  date: "2026-07-27",
+  summary: "A product requirements doc for Matcha, a service that connects strangers for short conversations through cafes — from business goals to user journeys, feature priorities, and rollout plan.",
+};
+
+## Product overview
+
+**Matcha** is a location-based loose-connection service that turns "where should I work?" into "who should I trade ideas with?" It reuses Google Maps' `Place ID` directly as a "room," so any cafe already registered on Google instantly becomes a stage for a coffee chat — no separate place registration needed.
+
+Where existing review services tell you "what this place used to be like," Matcha focuses on "who's here right now and what conversations are possible." It's built for Korean, English, and Chinese speakers to mix naturally, and both the name and tone borrow from matcha (抹茶) instead of coffee — a calm, minimal tone that fit the positioning of "a refined space for high-quality conversation."
+
+## Business goals and metrics
+
+### 1. Business objective analysis
+The primary goal isn't revenue — it's **active density per location**. Building conviction at a handful of cafes that "if you open this app here, there's always someone to talk to" is what creates negotiating leverage for later regional expansion and cafe partnerships.
+
+### 2. Key performance indicators (KPIs)
+- Coffee-chat conversion rate per check-in (matches made / check-ins)
+- Weekly active check-ins per pilot cafe
+- Offline meetup conversion after a match (accepted → actual check-in)
+- Return-visit rate (re-check-in within 30 days of saving a favorite cafe)
+
+### 3. Target numbers
+For an 8-week pilot run across a 5-cafe pilot region:
+- Check-in → match conversion rate **25%+**
+- Match → offline meetup conversion rate **60%+**
+- Return-visit rate **30%+**
+
+## Core customer / user definition
+
+- **Digital nomads / freelancers**: people who work from cafes and want loose networking
+- **Language exchange seekers**: people looking for real conversation partners in English or Chinese
+- **Business collaboration explorers**: people in marketing, IT, design, etc. who state their field and look for collaborators
+
+All three groups share a common need: the app lowers the burden of being the one to approach a stranger first.
+
+## Core user journey (CUJ) / user stories
+
+**Target user group**: digital nomads (primary target)
+**Core scenario**: arrive at a cafe → check in → find someone with matching interests → match → offline conversation
+**How the problem is solved**: map-based real-time presence plus tag matching removes the cost of figuring out "who should I talk to"
+**Additional notes and fallback**: even without a match, the app still surfaces real-time density at the cafe itself (how many people are currently checked in), preserving at least the information value of "this cafe has people in it."
+
+### User journey map
+
+<img src="/blog/matcha-flow.svg" alt="Matcha user journey: discover-explore-match-first meetup-follow-up flow" />
+
+The journey breaks into five stages.
+
+1. **Discover** — open the map → real-time filters (language / field / purpose) → pick a cafe by Place ID
+2. **Explore** — cafe detail view (reviews + checked-in count) → browse profile cards → find someone of interest
+3. **Match** — the other person gets notified → match confirmed / politely declined (can re-request after 30 minutes)
+4. **First meetup** — check in → coordinate topic and spot via in-app chat → meet offline (app runs in the background)
+5. **Follow-up** — leave feedback → keep the connection (follow / LinkedIn) → return-visit prompts; these three then accumulate into **reputation and history**, increasing future match opportunities
+
+### User stories
+
+> As a (customer/user type), I want (need/desire) in order to (purpose/goal).
+
+- As someone who frequently works from cafes, I want to check whether someone with matching interests is nearby before approaching them, so I can network without the burden of striking up a conversation with a stranger cold.
+- As someone who needs real practice in a foreign language, I want to filter to only people whose spoken languages are clearly tagged on their profile, so I can find a language exchange partner.
+
+## Functional requirements
+
+### Must have
+- **Map-centered discovery**: pins for currently active cafes near the user's location, bottom sheet tied to Place ID
+- **Check-in**: switches to "available for a coffee chat" status on arrival at a cafe, reflected in real time with no app restart
+- **Profile setup**: required tags for language, area of expertise, and coffee-chat style
+- **Matching flow**: request → notification → accept/decline; the other party stays anonymous if declined
+- **In-app chat, phase A (signal)**: push notification sent on a match request
+
+### Should have
+- **In-app chat, phase B (1:1 chat room)**: chat room auto-created once matched, with a real-time translate button
+- **Reviews & reputation system**: simple emoji-based feedback that strengthens a trust profile as it accumulates
+- **Safety features**: profile verification, manner-score-style metrics to filter out no-shows and unpleasant matches
+
+### Could have
+- **Event history**: accumulated coffee-chat history per cafe, surfaced as "this place sees a lot of activity"
+- **Return-visit prompts**: saved favorite cafes, weekly recommendation notifications
+- **Cafe-partnership revenue model**: reservable seating dedicated to coffee chats, discounts exclusive to app users
+
+## Timeline and rollout plan
+
+**Tech stack**: since real-time behavior is the core requirement, the chat/presence server isn't built from scratch. Firebase (Firestore) syncs check-in status, match notifications, and chat messages in real time, while the UI is assembled in FlutterFlow to keep early development cost down. Google Maps integration is also covered natively by FlutterFlow.
+
+**Rollout stages**:
+1. **Pilot (4 weeks)** — launch limited to 5 cafes in a dense area like Seongsu-dong or Hannam-dong; focus on a tight radius rather than the full map to first build the "there's always someone here" experience.
+2. **Validation (4 weeks)** — check KPIs (match rate, offline conversion, return-visit rate) and decide whether to expand regionally.
+3. **Expansion** — if validation passes, grow the cafe pool into adjacent areas and start piloting the cafe-partnership revenue model.
+
+## Branding notes
+
+- Primary color is a calm green tone; profile card UI stays minimal
+- Status vocabulary: **Steeping** instead of "online," **Ready to Sip** instead of "available for a coffee chat"
+- Live over reviews — surface "this place's real-time density right now" as the primary signal instead of written reviews
