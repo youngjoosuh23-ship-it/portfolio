@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Fragment, useEffect, useRef } from "react";
 import type { ReactNode } from "react";
@@ -66,11 +67,12 @@ function ProjectCard({ project }: { project: Project }) {
           {/* image preview */}
           {project.image && (
             <div className="relative w-full overflow-hidden" style={{ height: 130 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-cover object-top"
+                fill
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="object-cover object-top"
                 style={{ opacity: 0.88 }}
               />
               <div
@@ -166,11 +168,12 @@ function BlogPreviewCard({ post }: { post: BilingualPost }) {
         >
           {post.image && (
             <div className="relative w-full overflow-hidden" style={{ height: 130 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={post.image}
                 alt={title}
-                className="w-full h-full object-cover"
+                fill
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="object-cover"
                 style={{ opacity: 0.88, objectPosition: "50% 65%" }}
               />
               <div

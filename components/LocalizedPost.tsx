@@ -1,6 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
+import Image from "next/image";
 import { useLang } from "@/components/LangProvider";
 
 export default function LocalizedPost({
@@ -25,11 +26,13 @@ export default function LocalizedPost({
     <div className="flex flex-col gap-8">
       {image ? (
         <div className="relative w-full overflow-hidden rounded-2xl" style={{ height: 250 }}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={image}
             alt={title}
-            className="w-full h-full object-cover"
+            fill
+            sizes="768px"
+            priority
+            className="object-cover"
             style={{ objectPosition: "50% 65%" }}
           />
           <div
