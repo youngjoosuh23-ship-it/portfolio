@@ -1,16 +1,19 @@
 import fs from "fs";
 import path from "path";
-import { IDEA_CATEGORIES, type IdeaCategory } from "./idea-categories";
+import { NOTE_TYPES, type NoteType } from "./note-types";
 
 const IDEAS_FILE = path.join(process.cwd(), "content/ideas.json");
+const FLEETING_TTL_HOURS = 48;
 
-export { IDEA_CATEGORIES, type IdeaCategory };
+export { NOTE_TYPES, type NoteType };
 
 export type Idea = {
   id: string;
   text: string;
-  category: IdeaCategory;
+  type: NoteType;
   date: string;
+  source?: string; // literature notes: where the idea came from
+  links?: string[]; // permanent notes: ids of notes this one connects to
 };
 
 export function getAllIdeas(): Idea[] {
@@ -19,14 +22,27 @@ export function getAllIdeas(): Idea[] {
   return ideas.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
+// ponytail: date is stored day-only, so this is +/- a day, not exact 48h
+export function isStaleFleeting(idea: Idea): boolean {
+  if (idea.type !== "fleeting") return false;
+  const ageMs = Date.now() - new Date(idea.date).getTime();
+  return ageMs > FLEETING_TTL_HOURS * 60 * 60 * 1000;
+}
+
 // Same flow as writing a blog post: edit locally, then `git push` to publish.
-export function addIdea(text: string, category: IdeaCategory): void {
+export function addIdea(
+  text: string,
+  type: NoteType,
+  extra?: { source?: string; links?: string[] }
+): void {
   const ideas = JSON.parse(fs.readFileSync(IDEAS_FILE, "utf-8"));
   ideas.push({
     id: Date.now().toString(36),
     text,
-    category,
+    type,
     date: new Date().toISOString().slice(0, 10),
+    ...(extra?.source ? { source: extra.source } : {}),
+    ...(extra?.links?.length ? { links: extra.links } : {}),
   });
   fs.writeFileSync(IDEAS_FILE, JSON.stringify(ideas, null, 2) + "\n");
 }
