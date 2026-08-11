@@ -2,14 +2,8 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { NOTE_TYPES, NOTE_TYPE_LABEL, type NoteType } from "@/lib/note-types";
+import { NOTE_TYPES, NOTE_TYPE_LABEL, NOTE_TYPE_PLACEHOLDER, type NoteType } from "@/lib/note-types";
 import type { Idea } from "@/lib/ideas";
-
-const placeholder: Record<NoteType, string> = {
-  fleeting: "지금 떠오른 걸 그대로, 맞춤법도 신경 쓰지 말고...",
-  literature: "읽은 걸 내 말로 세 줄로...",
-  permanent: "메모를 확장해서 하나의 글로...",
-};
 
 export default function CaptureForm({ existingNotes }: { existingNotes: Idea[] }) {
   const router = useRouter();
@@ -67,7 +61,7 @@ export default function CaptureForm({ existingNotes }: { existingNotes: Idea[] }
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder={placeholder[type]}
+        placeholder={NOTE_TYPE_PLACEHOLDER[type]}
         rows={type === "permanent" ? 5 : 2}
         className="font-mono text-[13px] rounded-xl border p-3 bg-transparent resize-none outline-none"
         style={{ borderColor: "#1a2129", color: "#eaf1f8" }}

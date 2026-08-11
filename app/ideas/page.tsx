@@ -1,27 +1,15 @@
 import { getAllIdeas, isStaleFleeting, type Idea } from "@/lib/ideas";
-import { NOTE_TYPES, NOTE_TYPE_LABEL, type NoteType } from "@/lib/note-types";
+import { NOTE_TYPES, NOTE_TYPE_LABEL, NOTE_TYPE_COLOR, NOTE_TYPE_DESC, type NoteType } from "@/lib/note-types";
 import CaptureForm from "./CaptureForm";
-
-const typeColor: Record<NoteType, string> = {
-  fleeting: "#7c97b0",
-  literature: "#4682b4",
-  permanent: "#ff6347",
-};
-
-const typeDesc: Record<NoteType, string> = {
-  fleeting: "48시간 안에 안 꺼내보면 버려지는 메모",
-  literature: "밑줄 대신 내 말로 세 줄, 출처만 남긴다",
-  permanent: "확장해서 쓰고, 예전 메모 하나와 연결한다",
-};
 
 export default function IdeasPage() {
   const ideas = getAllIdeas();
-  const byId = new Map(ideas.map((i) => [i.id, i]));
-  const grouped: Record<NoteType, Idea[]> = {
-    fleeting: ideas.filter((i) => i.type === "fleeting"),
-    literature: ideas.filter((i) => i.type === "literature"),
-    permanent: ideas.filter((i) => i.type === "permanent"),
-  };
+  const grouped = Object.fromEntries(NOTE_TYPES.map((t) => [t, [] as Idea[]])) as Record<NoteType, Idea[]>;
+  const byId = new Map<string, Idea>();
+  for (const idea of ideas) {
+    byId.set(idea.id, idea);
+    if (idea.type in grouped) grouped[idea.type].push(idea);
+  }
 
   return (
     <main className="px-6 py-8 max-w-6xl mx-auto w-full min-h-[calc(100vh-2.5rem)] flex flex-col gap-8">
@@ -42,7 +30,7 @@ export default function IdeasPage() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {NOTE_TYPES.map((type) => {
           const group = grouped[type];
-          const color = typeColor[type];
+          const color = NOTE_TYPE_COLOR[type];
 
           return (
             <div key={type} className="flex flex-col gap-4 min-h-0">
@@ -59,7 +47,7 @@ export default function IdeasPage() {
                   </span>
                 </div>
                 <p className="font-mono text-[10px] leading-relaxed" style={{ color: "#51687d" }}>
-                  {typeDesc[type]}
+                  {NOTE_TYPE_DESC[type]}
                 </p>
                 <div className="h-px w-full" style={{ backgroundColor: color + "33" }} />
               </div>

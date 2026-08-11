@@ -41,8 +41,8 @@ export function addIdea(
     text,
     type,
     date: new Date().toISOString().slice(0, 10),
-    ...(extra?.source ? { source: extra.source } : {}),
-    ...(extra?.links?.length ? { links: extra.links } : {}),
+    source: extra?.source,
+    links: extra?.links?.length ? extra.links : undefined,
   });
   fs.writeFileSync(IDEAS_FILE, JSON.stringify(ideas, null, 2) + "\n");
 }
