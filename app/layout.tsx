@@ -63,8 +63,8 @@ export default function RootLayout({
                 <Link href="/blog" className="font-mono text-xs tracking-[0.3em] transition-colors hover:text-[#eaf1f8]" style={{ color: "#7c97b0" }}>
                   BLOG
                 </Link>
-                <Link href="/ideas" className="font-mono text-xs tracking-[0.3em] transition-colors hover:text-[#eaf1f8]" style={{ color: "#7c97b0" }}>
-                  IDEAS
+                <Link href="/study" className="font-mono text-xs tracking-[0.3em] transition-colors hover:text-[#eaf1f8]" style={{ color: "#7c97b0" }}>
+                  STUDY
                 </Link>
               </div>
               <div className="flex items-center gap-4">
