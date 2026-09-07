@@ -448,11 +448,11 @@ export const projects: Project[] = [
         ko:
           "Problem: 캠퍼스 내의 교류 기회가 제한적이었고, 네트워킹의 장이 부족하다고 느낌. 특히 국제 학생들의 니즈를 충족시키기 위한 활동이 제한적이라고 판단함.\n\n" +
           "Solution: 4년간 일반 회원 → 이벤트 기획 팀장 → 부회장으로 성장하며, 스웨덴 샬메르스 공과대학 대만 사무소(CITO)와 협업해 50명 이상이 참여하는 다문화 세미나를 기획·운영. 러닝크루 활동 일정과 운영을 현장에서 조정해 참여자를 10명에서 30명으로 확대했고, '다문화 교류 강좌'를 신설해 월간 정기 프로그램으로 발전시킴. 부회장으로서 부서 간 일정 조율·업무 배분을 맡고, Canva로 홍보 콘텐츠를 제작해 참여도를 끌어올림.\n\n" +
-          "Result: 4년 만에 일반 회원에서 부회장으로 성장. 다문화 세미나 100명 이상 참여, 러닝크루 참여자 3배 확대(10명→30명), 신설 강좌의 월간 정기 프로그램화까지 이끌어냄.",
+          "Result: 4년 만에 일반 회원에서 부회장으로 성장. 다문화 세미나 50명 이상 참여, 러닝크루 참여자 3배 확대(10명→30명), 이벤트 기획 성과를 이끌어냄.",
         en:
-          "Problem: Opportunities for engagement on campus were limited, and I felt there wasn't enough of a networking venue — especially activities aimed at meeting international students' actual needs.\n\n" +
-          "Solution: Grew over four years from general member → event planning lead → Vice President. Partnered with Chalmers University of Technology's Taiwan office (CITO) to plan and run a multicultural seminar with 100+ attendees. Adjusted the running crew's schedule and on-site operations to grow participants from 10 to 30, and launched a new \"multicultural exchange course\" that became a monthly recurring program. As VP, coordinated cross-department scheduling and task allocation, and produced promotional content in Canva to drive participation.\n\n" +
-          "Result: Grew from general member to Vice President in four years. Drove 100+ attendees at the multicultural seminar, tripled running crew participation (10 → 30), and turned the new course into a monthly recurring program.",
+          "Problem: Opportunities for engagement on campus were limited, especially for networking, I structured activities for interacting between international students and local students.\n\n" +
+          "Solution: Grew over four years from general member → event planning lead → Vice President. Partnered with Chalmers University of Technology's Taiwan office (CITO) to plan and run a multicultural seminar with 50+ attendees. Adjusted the running crew's schedule and on-site operations to grow participants from 10 to 30, and launched a new event called \"sharing culture class\" that became a monthly recurring program. As VP, coordinated cross-department scheduling and task allocation, and produced promotional content in Canva to drive participation.\n\n" +
+          "Result: Grew from general member to Vice President in four years. Drove 50+ attendees at the multicultural seminar, tripled running crew participation (10 → 30), and turned the new event into a monthly recurring program.",
       },
       kpis: [
         {
