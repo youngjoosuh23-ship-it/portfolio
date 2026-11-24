@@ -4,7 +4,7 @@ import ProjectGrid from "@/components/ProjectGrid";
 import RotatingWord from "@/components/RotatingWord";
 
 export default async function Home() {
-  const posts = await getAllPostsBilingual();
+  const posts = (await getAllPostsBilingual()).filter((p) => p.category !== "briefing");
 
   return (
     <main className="px-6 py-8 max-w-7xl mx-auto w-full min-h-[calc(100vh-2.5rem)] flex flex-col gap-8">

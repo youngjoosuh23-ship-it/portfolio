@@ -27,7 +27,7 @@ export default async function BlogPostPage({
 
   return (
     <main className="px-6 py-8 max-w-3xl mx-auto w-full min-h-[calc(100vh-2.5rem)] flex flex-col gap-8">
-      <BackLink fallbackHref="/blog" label="← BACK" />
+      <BackLink fallbackHref={koMeta.category === "briefing" ? "/briefing" : "/blog"} label="← BACK" />
 
       <LocalizedPost
         koTitle={koMeta.title}

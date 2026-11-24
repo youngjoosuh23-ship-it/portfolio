@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useLang } from "@/components/LangProvider";
 import type { BilingualPost } from "@/lib/blog";
+import type { L } from "@/lib/projects";
 
 const t = {
   title: { ko: "Blog", en: "Blog" },
@@ -10,7 +11,17 @@ const t = {
   empty: { ko: "아직 글이 없습니다", en: "no posts yet" },
 };
 
-export default function BlogList({ posts }: { posts: BilingualPost[] }) {
+export default function BlogList({
+  posts,
+  title = t.title,
+  tagline = t.tagline,
+  link,
+}: {
+  posts: BilingualPost[];
+  title?: L;
+  tagline?: L;
+  link?: { href: string; label: L };
+}) {
   const { lang } = useLang();
 
   return (
@@ -20,11 +31,20 @@ export default function BlogList({ posts }: { posts: BilingualPost[] }) {
           className="font-mono text-3xl md:text-4xl font-bold tracking-tight"
           style={{ color: "#eaf1f8" }}
         >
-          {t.title[lang]}
+          {title[lang]}
         </h1>
         <p className="font-mono text-xs md:text-sm tracking-wide" style={{ color: "#7c97b0" }}>
-          {t.tagline[lang]}
+          {tagline[lang]}
         </p>
+        {link && (
+          <Link
+            href={link.href}
+            className="font-mono text-[11px] transition-colors hover:text-[#eaf1f8] self-start"
+            style={{ color: "#51687d" }}
+          >
+            {link.label[lang]}
+          </Link>
+        )}
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

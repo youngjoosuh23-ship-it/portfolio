@@ -10,6 +10,7 @@ export type PostMetadata = {
   date: string;
   summary?: string;
   image?: string;
+  category?: string; // "briefing" = daily briefing; omitted = regular blog post
 };
 
 export type Post = PostMetadata & { slug: string };
@@ -18,6 +19,7 @@ export type BilingualPost = {
   slug: string;
   date: string;
   image?: string;
+  category?: string;
   ko: { title: string; summary?: string };
   en: { title: string; summary?: string };
 };
@@ -61,6 +63,7 @@ export async function getAllPostsBilingual(): Promise<BilingualPost[]> {
         slug,
         date: ko.metadata.date,
         image: ko.metadata.image,
+        category: ko.metadata.category,
         ko: { title: ko.metadata.title, summary: ko.metadata.summary },
         en: { title: en.metadata.title, summary: en.metadata.summary },
       };
